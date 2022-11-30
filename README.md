@@ -3,7 +3,7 @@
 ```mermaid
 flowchart TD
     A[Client clicks Log in] --> B[Client is redirected to Auth0 login];
-    B[Auth0 sends client back to site] --> C {website UI};
+    B[Auth0 sends client back to site] --> C{website UI};
 ```
 
 ```mermaid
