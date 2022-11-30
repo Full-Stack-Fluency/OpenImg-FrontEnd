@@ -8,6 +8,12 @@ flowchart TD
     B --> C{OpenAI Image Generator};
     C --> B;
     B --> A;
-    D{Client Saves Prompt} --> B
-    B --> E{MongoDBAtlas}
+```
+
+```mermaid
+flowchart TD
+    A[Client saves prompt] --> B{Server on Render};
+    B --> C{MongoDB Atlas};
+    C --> B;
+    B --> A;
 ```
