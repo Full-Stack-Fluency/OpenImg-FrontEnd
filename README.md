@@ -43,4 +43,4 @@ DeShon Dixon -- Jason Christopher -- Keyan Tabor -- Oliver Speir
 - `git clone https://github.com/OliverSpeir/TeamAwesome-301Project.git`
 - cd into the directory
 - type `npm i` into terminal while inside the directory
-- remove .sample from end of .env.sample file and set server variable to http://localhost:3001
+- remove .sample from end of .env.sample file and set server variable to http://localhost:xxxx
