@@ -88,7 +88,7 @@ Whats gonna work.. TEAMWORK!!
 ​
 ## Presentation Deck
 ​
-* https://docs.google.com/presentation...
+* [https://docs.google.com/presentation...](https://docs.google.com/presentation/d/1NeXKKEpjK2DDme8EwlZBsJndUqIgGYzWrY6FAYtNTf0/edit?usp=sharing)
   
 ## Git Process
 ​
