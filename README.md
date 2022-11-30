@@ -1,6 +1,6 @@
 # Code Name: OpenImg
 
-## Summary of Idea
+## Overview
 - Users are able to create images via the OpenAI DALL·E 2 API
 
 ## What problem or pain point does it solve? 
