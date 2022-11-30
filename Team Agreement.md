@@ -28,11 +28,11 @@ Whats gonna work.. TEAMWORK!!
 ​
 ### What will be your group’s process to resolve conflict, when it arises?
 ​
-* We will meet up in Remo to discuss the issues if the issue countinues notify Sheyna.
+* We will all talk about our contributions to project at beginning of day and assign task to each member. We will be mainly using driver/ navigator work flow. We will meet up in Remo to discuss the issues if the issue countinues notify Sheyna.
 ​
 ### What will your team do if one person is taking over the project and not letting the other members contribute?
 ​
-* We will meet up in Remo to discuss the issues if the issue countinues notify Sheyna.
+* We will meet up in Remo to discuss the issues. When we dicuss who will be driver of a certain section of project but we will be having an input while they are driving and act as navigators. 
 ​
 ### How will you approach each other and the challenges of the project knowing that it is impossible for all members to be at the exact same place in understanding and skill level?
 ​
