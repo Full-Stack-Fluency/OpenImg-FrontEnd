@@ -94,19 +94,20 @@ Whats gonna work.. TEAMWORK!!
 ​
 ### What components of your project will live on GitHub?
 ​
-* All components on dev branch.
+* Front and Back-end code will be on GitHub and Deployed live on Netlify and Render respectively
 ​
 ### How will you share the repository with your teammates?
 ​
-* Allow all members admin access. 
+* Allow all members admin access to GitHub Repos 
 ​
 ### What is your Git flow?
 ​
-* Only push to dev branch and approval from two members before pushing.
+* While working we check out to a new branch and then we will merge that branch into Dev based on 2 person review rule
+* Incrementally push "finalized" code to main at check-points like front end complete and follow same for back end 
 ​
 ### Will you be using a PR review workflow?
 ​
-* Only push to dev branch and approval from two members before pushing.
+* Yes
 ​
 ### How many people must review a PR?
 ​
