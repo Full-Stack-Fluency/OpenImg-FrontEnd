@@ -23,7 +23,6 @@ flowchart TD
 ```mermaid
 flowchart TD
     A[Client wants to edit a prompt] --> B{Server on Render requests prompt};
-    B --> C{MongoDB Atlas sends prompt};
     C[Client Updates Prompt] --> B{Server on Render requests prompt};
     B --> C{MongoDB Atlas sends prompt};
 ```
