@@ -4,8 +4,8 @@
 
 ```mermaid
 flowchart TD
-    A[Client] --> B{Server on Render};
-    B --> C{OpenAI Image Generator};
+    A[Client creates prompt] --> B{Server on Render sends prompt to API};
+    B --> C{OpenAI Image Generator Creates Image and sends it back};
     C --> B;
     B --> A;
 ```
