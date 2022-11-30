@@ -1,6 +1,9 @@
 # Open AI Image General
 
-
+```mermain
+flowchart TD
+    A[Client clicks Log in] --> B[Client is redirected to Auth0 login];
+    B[Auth0 sends client back to site] --> C {website UI};
 
 ```mermaid
 flowchart TD
@@ -12,8 +15,8 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A[Client saves prompt] --> B{Server on Render};
-    B --> C{MongoDB Atlas};
+    A[Client saves prompt] --> B{Server on Render sends prompt with email info to DB};
+    B --> C{MongoDB Atlas stores prompt with user email};
 ```
 
 ```mermaid
