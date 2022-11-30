@@ -8,11 +8,11 @@
 
 ## Minimum Viable Product (MVP) definition. 
 
--User can log in via Auth0
--User can generate image via prompt
--User can save their prompt
--User can edit their saved prompt 
--User can delete their saved prompt
+- User can log in via Auth0
+- User can generate image via prompt
+- User can save their prompt
+- User can edit their saved prompt 
+- User can delete their saved prompt
 
 ## Stretch Goals
 - User can store the URL of their image without needing to regenerate that image via the API
