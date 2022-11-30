@@ -1,4 +1,8 @@
 # Open AI Image General
+- 1. Logs in
+- 2. Creates Prompt and gets Image back
+- 3. Saves that prompt 
+- 4. Edits that prompt
 ## Step1 : Client logs in
 ```mermaid
 flowchart TD
