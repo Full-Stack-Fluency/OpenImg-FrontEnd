@@ -10,7 +10,7 @@ What problem or pain point does it solve? a. Keep it high level without going in
 Art for people that aren't artist.
 
 Minimum Viable Product (MVP) definition. 
-Allows use to save rendered images to the database.
+Allows use to save rendered images to the database. 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
