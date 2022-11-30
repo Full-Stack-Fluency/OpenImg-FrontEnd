@@ -4,10 +4,10 @@
 
 ```mermaid
 flowchart TD
-    A[Client] --> [Server on Render]B;
-    B --> [OpenAI Image Generator]C;
+    A[Client] --> B{Server on Render};
+    B --> C{OpenAI Image Generator};
     C --> B;
     B --> A;
-    D[Client Saves Prompt] --> B
-    B --> [MongoDBAtlas]E
+    D{Client Saves Prompt} --> B
+    B --> E{MongoDBAtlas}
 ```
