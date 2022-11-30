@@ -3,7 +3,7 @@
 ## Summary of idea:
 - Users are able to create images via the OpenAI DALL·E 2 API
 
-## What problem or pain point does it solve? a. Keep it high level without going into too much detail. (3-4 sentences is enough)
+## What problem or pain point does it solve? 
 - Art for people that aren't artist.
 
 ## Minimum Viable Product (MVP) definition. 
