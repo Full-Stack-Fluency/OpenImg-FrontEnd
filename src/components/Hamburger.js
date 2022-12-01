@@ -5,7 +5,7 @@ class Hamburger extends React.Component {
     render() {
         return (
             //this will be our nav thing 
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="xxl" bg="dark" variant="dark" >
                 <Navbar.Brand href="/">
                     Menu
                 </Navbar.Brand>

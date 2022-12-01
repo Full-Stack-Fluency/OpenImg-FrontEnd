@@ -9,7 +9,7 @@ class InputForm extends React.Component {
             <Form onSubmit={this.props.handleSubmitPrompt}>
                 <Form.Group controlId='prompt'>
                     <Form.Label>Prompt</Form.Label>
-                    <Form.Control type="text" placeholder="type whatever type of image you want to see" />
+                    <Form.Control type="text" placeholder="type whatever type of image you want to see" onChange={this.props.handleFormChange} />
                 </Form.Group>
                 <Button type="submit">Generate Image</Button>
             </Form>
