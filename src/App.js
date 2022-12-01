@@ -5,17 +5,19 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-// import { withAuth0 } from '@auth0/auth0-react';
+import { withAuth0 } from '@auth0/auth0-react';
 import Generate from './components/Generate.js';
-// import Hamburger from './components/Hamburger.js';
+import Hamburger from './components/Hamburger.js';
 import Edit from './components/Edit.js';
 import About from './components/About.js';
 
 class App extends React.Component {
+
   render() {
     return (
       <>
           <Router>
+            <Hamburger />
             <Routes>
               <Route
                 exact path="/"
@@ -28,7 +30,7 @@ class App extends React.Component {
               </Route>
               <Route
                 exact path="/edit"
-                element={<Edit />}>
+                element={this.props.auth0.isAuthenticated? <Edit /> : <About />}>
               </Route>
             </Routes>
       </Router>
@@ -37,5 +39,5 @@ class App extends React.Component {
   }
 }
 
-// export default withAuth0(App);
-export default App;
+export default withAuth0(App);
+// export default App;
