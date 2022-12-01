@@ -1,5 +1,8 @@
 import React from 'react';
 import { Nav, Navbar} from "react-bootstrap";
+import { withAuth0 } from '@auth0/auth0-react';
+import LoginButton from './LoginButton.js';
+import LogoutButton from './LogoutButton.js';
 
 class Hamburger extends React.Component {
     render() {
@@ -16,10 +19,12 @@ class Hamburger extends React.Component {
                         <Nav.Link href="/edit">Edit Prompts</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
+                {this.props.auth0.isAuthenticated ? <LogoutButton /> : <LoginButton />}
             </Navbar>
+            
         );
     }
 }
 
 
-export default Hamburger;
+export default withAuth0(Hamburger);
