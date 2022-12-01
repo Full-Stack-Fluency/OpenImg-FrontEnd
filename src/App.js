@@ -8,8 +8,8 @@ import {
 // import { withAuth0 } from '@auth0/auth0-react';
 import Generate from './components/Generate.js';
 // import Hamburger from './components/Hamburger.js';
-// import Edit from './components/Edit.js';
-// import About from './components/About.js';
+import Edit from './components/Edit.js';
+import About from './components/About.js';
 
 class App extends React.Component {
   render() {
@@ -22,14 +22,14 @@ class App extends React.Component {
                 element= {<Generate />}
               >
               </Route>
-              {/* <Route
+              <Route
                 exact path="/about"
                 element={<About />}>
               </Route>
               <Route
                 exact path="/edit"
                 element={<Edit />}>
-              </Route> */}
+              </Route>
             </Routes>
       </Router>
       </>
