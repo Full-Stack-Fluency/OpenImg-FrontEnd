@@ -1,14 +1,16 @@
 import React from 'react';
-import { Nav, Navbar} from "react-bootstrap";
+// import { Nav, Navbar} from "react-bootstrap";
 import { withAuth0 } from '@auth0/auth0-react';
 import LoginButton from './LoginButton.js';
 import LogoutButton from './LogoutButton.js';
+import {Link} from 'react-router-dom';
 
 class Hamburger extends React.Component {
     render() {
         return (
             //this will be our nav thing 
-            <Navbar collapseOnSelect expand="xxl" bg="dark" variant="dark" >
+            <>
+            {/* <Navbar collapseOnSelect expand="xxl" bg="dark" variant="dark" >
                 <Navbar.Brand href="/">
                     Menu
                 </Navbar.Brand>
@@ -19,9 +21,12 @@ class Hamburger extends React.Component {
                         <Nav.Link href="/edit">Edit Prompts</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
-                {this.props.auth0.isAuthenticated ? <LogoutButton /> : <LoginButton />}
-            </Navbar>
-            
+            </Navbar> */}
+        <Link to = "/edit"> Edit</Link>
+        <Link to = "/about"> About</Link>
+        <Link to = "/"> Home</Link>
+         {this.props.auth0.isAuthenticated ? <LogoutButton /> : <LoginButton />}
+         </>
         );
     }
 }
