@@ -12,8 +12,8 @@ import Edit from './components/Edit.js';
 import About from './components/About.js';
 
 class App extends React.Component {
-
   render() {
+    // console.log(this.props.auth0.isAuthenticated);
     return (
       <>
           <Router>
@@ -30,7 +30,7 @@ class App extends React.Component {
               </Route>
               <Route
                 exact path="/edit"
-                element={this.props.auth0.isAuthenticated? <Edit /> : <About />}>
+                element={this.props.auth0.isAuthenticated? <Edit /> : <h1>Your Site is Broken</h1>}>
               </Route>
             </Routes>
       </Router>

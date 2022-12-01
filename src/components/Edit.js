@@ -154,3 +154,4 @@ class Edit extends Component {
   }
 };
 export default withAuth0(Edit);
+// export default Edit;
