@@ -1,5 +1,6 @@
 import React from 'react';
-import { Form, Button,Popover } from 'react-bootstrap';
+import { Form, Popover, Button } from 'react-bootstrap';
+import './InputForm.css';
 
 
 class InputForm extends React.Component {
@@ -32,15 +33,17 @@ class InputForm extends React.Component {
                             Prompt Required
                         </Popover.Header>
                         <Popover.Body>
-                            cmon bruh at least fill it out before you spam click
+                            Fill in form before you click Image Generation
                         </Popover.Body>
                     </Popover>
                 }
                 <Form.Group controlId='prompt'>
-                    <Form.Label>Prompt</Form.Label>
-                    <Form.Control type="text" placeholder="type whatever type of image you want to see" onChange={this.props.handleFormChange} />
+                    <Form.Label className="OpenImg-Prompt">OpenImg</Form.Label>
+                    <Form.Control type="text" placeholder="Type to generate image" onChange={this.props.handleFormChange} />
                 </Form.Group>
-                <Button type="submit">Generate Image</Button>
+                <div className="buttonGen">
+                <Button className="imgGenerator" type="submit">AI Image Generation</Button>
+                </div>
             </Form>
         )
     }

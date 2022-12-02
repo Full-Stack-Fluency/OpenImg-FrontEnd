@@ -1,0 +1,20 @@
+.OpenImg-Prompt {
+  font-weight: bolder;
+  color: red;
+  font-size: 3vw;
+  padding-bottom: 1vw;
+  display: flex;
+  justify-content: center;
+  
+}
+
+button.imgGenerator {
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.buttonGen {
+  padding: 2vw;
+}
