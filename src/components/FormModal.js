@@ -10,9 +10,10 @@ class FormModal extends React.Component {
   }
 
   handleRequireInputToGenerate = e => {
+    e.preventDefault();
     if (e) e.preventDefault();
     if (e.target.prompt.value !== '') {
-      this.props.handleEditItem(e);
+      this.props.handleEditItem(e, this.props.itemToChange);
       this.props.handleCloseModal();
       this.setState({
         popoverDisplay: false
