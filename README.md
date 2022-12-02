@@ -44,3 +44,7 @@ DeShon Dixon -- Jason Christopher -- Keyan Tabor -- Oliver Speir
 - cd into the directory
 - type `npm i` into terminal while inside the directory
 - remove .sample from end of .env.sample file and set server variable to http://localhost:xxxx
+
+### Project Prep 4 UML documentation requirements
+<img src = "https://i.imgur.com/6Xvzvpj.png"/>
+<img src = "https://i.imgur.com/PkbQiZ0.png" />
