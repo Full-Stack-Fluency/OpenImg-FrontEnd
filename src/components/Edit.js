@@ -29,11 +29,14 @@ class Edit extends Component {
           url: '/item',
           headers: {
             "Authorization": `Bearer ${jwt}`
-          }
+          },
+           params: {
+             "email": `${this.props.auth0.user.email}`
+           }
         }
         console.log(config);
         let itemResults = await axios(config);
-        console.log(itemResults.data);
+        
         this.setState({
           results: itemResults.data
         });
