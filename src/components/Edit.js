@@ -11,7 +11,7 @@ class Edit extends Component {
       results: [],
       itemToChange: {},
       isModalShown: false,
-      loading: false,
+      loading: {},
     }
   }
 
@@ -53,10 +53,11 @@ class Edit extends Component {
     })
   }
 
-  handleEditItem = async (e) => {
+  handleEditItem = async (e, obj) => {
     e.preventDefault();
+    console.log(obj);
     this.setState({
-      loading: true,
+      loading: obj,
     });
     try {
       let reqbodyObj = { prompt: e.target.prompt.value }
@@ -81,7 +82,7 @@ class Edit extends Component {
       });
       this.setState({
         results: updatedResultsArray,
-        loading: false,
+        loading: {},
       });
     } catch (err) {
     }
@@ -105,30 +106,13 @@ class Edit extends Component {
 
   render() {
 
-    // let accordionItems = this.state.results.map((item, idx) => {
-    //   return (
-    //     <Accordion.Item key={idx}>
-    //       <Accordion.Header>{item.prompt}</Accordion.Header>
-    //       <Accordion.Body>
-    //         {this.state.loading ? <Spinner animation="border" /> : <img src={item.imgSrc} alt="Generated with Dall-E 2" />}
-    //         <Button
-    //           onClick={() => this.handleOpenModal(item)}
-    //         >Edit Item</Button>
-    //         <Button
-    //           onClick={() => this.handleDeleteItem(item._id)}
-    //         >Delete Item</Button>
-    //       </Accordion.Body>
-    //     </Accordion.Item>
-    //   )
-    // });
     let cardItems = this.state.results.map((item, idx) => {
       return (
         <>
           <Card key={idx}>
-            {this.state.loading ? <Spinner animation="border" /> : <Card.Img src={item.imgSrc} alt="Generated with Dall-E 2" />}
+            {this.state.loading._id === item._id? <Spinner animation="border" /> : <Card.Img src={item.imgSrc} alt="Generated with Dall-E 2" />}
             <Card.Body>
-              <Card.Title>{item.prompt}</Card.Title>
-              {/* <Card.Text>{item.prompt}</Card.Text> */}
+              <Card.Title>{this.state.loading._id === item._id? <Spinner animation="border" /> : item.prompt}</Card.Title>
               <Button
                 onClick={() => this.handleOpenModal(item)}
               >Edit Item</Button>
