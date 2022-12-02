@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Accordion, Button, Spinner } from 'react-bootstrap';
+import { Card, CardGroup, Button, Spinner } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import FormModal from './FormModal';
@@ -11,7 +11,7 @@ class Edit extends Component {
       results: [],
       itemToChange: {},
       isModalShown: false,
-      loading: false
+      loading: false,
     }
   }
 
@@ -81,7 +81,7 @@ class Edit extends Component {
       });
       this.setState({
         results: updatedResultsArray,
-        loading: false
+        loading: false,
       });
     } catch (err) {
     }
@@ -105,28 +105,47 @@ class Edit extends Component {
 
   render() {
 
-    let accordionItems = this.state.results.map((item, idx) => {
+    // let accordionItems = this.state.results.map((item, idx) => {
+    //   return (
+    //     <Accordion.Item key={idx}>
+    //       <Accordion.Header>{item.prompt}</Accordion.Header>
+    //       <Accordion.Body>
+    //         {this.state.loading ? <Spinner animation="border" /> : <img src={item.imgSrc} alt="Generated with Dall-E 2" />}
+    //         <Button
+    //           onClick={() => this.handleOpenModal(item)}
+    //         >Edit Item</Button>
+    //         <Button
+    //           onClick={() => this.handleDeleteItem(item._id)}
+    //         >Delete Item</Button>
+    //       </Accordion.Body>
+    //     </Accordion.Item>
+    //   )
+    // });
+    let cardItems = this.state.results.map((item, idx) => {
       return (
-        <Accordion.Item key={idx}>
-          <Accordion.Header>{item.prompt}</Accordion.Header>
-          <Accordion.Body>
-            {this.state.loading ? <Spinner animation="border" /> : <img src={item.imgSrc} alt="Generated with Dall-E 2" />}
-            <Button
-              onClick={() => this.handleOpenModal(item)}
-            >Edit Item</Button>
-            <Button
-              onClick={() => this.handleDeleteItem(item._id)}
-            >Delete Item</Button>
-          </Accordion.Body>
-        </Accordion.Item>
+        <>
+          <Card key={idx}>
+            {this.state.loading ? <Spinner animation="border" /> : <Card.Img src={item.imgSrc} alt="Generated with Dall-E 2" />}
+            <Card.Body>
+              <Card.Title>{item.prompt}</Card.Title>
+              {/* <Card.Text>{item.prompt}</Card.Text> */}
+              <Button
+                onClick={() => this.handleOpenModal(item)}
+              >Edit Item</Button>
+              <Button
+                onClick={() => this.handleDeleteItem(item._id)}
+              >Delete Item</Button>
+            </Card.Body>
+          </Card>
+        </>
       )
-    });
+    })
 
     return (
       <>
-        <Accordion>
-          {accordionItems === []? <Spinner animation="border" /> : accordionItems}
-        </Accordion>
+        <CardGroup>
+          {cardItems === [] ? <Spinner animation="border" /> : cardItems}
+        </CardGroup>
         <Button className="button" onClick={this.getItems}>Render Page (backup)</Button>
         <FormModal
           handleEditItem={this.handleEditItem}
@@ -138,4 +157,6 @@ class Edit extends Component {
     );
   }
 };
+
+
 export default withAuth0(Edit);
