@@ -30,7 +30,7 @@ class App extends React.Component {
               </Route>
               <Route
                 exact path="/edit"
-                element={this.props.auth0.isAuthenticated? <Edit /> : <h1>Your Site is Broken</h1>}>
+                element={this.props.auth0.isAuthenticated? <Edit /> : <h1>Please Log in to Continue</h1>}>
               </Route>
             </Routes>
       </Router>
