@@ -42,7 +42,7 @@ class InputForm extends React.Component {
                     <Form.Control type="text" placeholder="Type to generate image" onChange={this.props.handleFormChange} />
                 </Form.Group>
                 <div className="buttonGen">
-                <Button className="imgGenerator" type="submit">AI Image Generation</Button>
+                <Button className="imgGenerator" type="submit">A.I. Image Generation</Button>
                 </div>
             </Form>
         )
