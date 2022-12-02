@@ -36,14 +36,14 @@ class Generate extends React.Component {
     });
   }
 
-  savePrompt = async () => {
+  savePrompt = async (idx) => {
     if (this.props.auth0.isAuthenticated) {
       const res = await this.props.auth0.getIdTokenClaims();
       const jwt = res.__raw;
       let schemaObj = {
         prompt: this.state.prompt,
         userEmail: this.props.auth0.user.email,
-        imgSrc: this.state.generatedImgArr.url
+        imgSrc: this.state.generatedImgArr[idx].url
       }
       let config = {
         method: 'post',
@@ -77,7 +77,7 @@ class Generate extends React.Component {
           <Card style={{ width: '18rem' }}>
             {this.state.loading ? <Spinner animation="border" /> : <Card.Img variant="top" src={item.url} key={idx} alt="Generated with Dall-E 2" />}
             <Card.Body>
-              {this.props.auth0.isAuthenticated && <Button variant= "primary" onClick={this.savePrompt} >Save to Collection</Button>}
+              {this.props.auth0.isAuthenticated && <Button variant= "primary" onClick={() => this.savePrompt(idx)} >Save to Collection</Button>}
             </Card.Body>
           </Card>
         )
