@@ -3,7 +3,6 @@ import { Button, Modal, Form} from 'react-bootstrap';
 
 class FormModal extends React.Component {
   render() {
-
     return (
       <>
         <Modal
