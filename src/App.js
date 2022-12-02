@@ -13,7 +13,6 @@ import About from './components/About.js';
 
 class App extends React.Component {
   render() {
-    // console.log(this.props.auth0.isAuthenticated);
     return (
       <>
           <Router>
@@ -40,4 +39,3 @@ class App extends React.Component {
 }
 
 export default withAuth0(App);
-// export default App;

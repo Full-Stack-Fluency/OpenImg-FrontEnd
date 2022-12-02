@@ -58,7 +58,6 @@ class Generate extends React.Component {
       try {
         await axios(config);
       } catch (err) {
-        console.log('error saving to database: ', err.response.data);
       }
     }
   }
@@ -78,10 +77,6 @@ class Generate extends React.Component {
           <Card style={{ width: '18rem' }}>
             {this.state.loading ? <Spinner animation="border" /> : <Card.Img variant="top" src={item.url} key={idx} alt="Generated with Dall-E 2" />}
             <Card.Body>
-              {/* <Card.Title>Card Title</Card.Title> */}
-              {/* <Card.Text className="itemImage">
-              
-            </Card.Text> */}
               {this.props.auth0.isAuthenticated && <Button variant= "primary" onClick={this.savePrompt} >Save to Collection</Button>}
             </Card.Body>
           </Card>
@@ -93,7 +88,6 @@ class Generate extends React.Component {
       <>
         <InputForm handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} />
         {this.state.first ? <div></div> : generatedItems}
-        {console.log(this.state.generatedImgArr)}
       </>
     )
   }
