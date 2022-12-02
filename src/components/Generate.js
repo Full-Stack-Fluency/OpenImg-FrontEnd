@@ -3,6 +3,7 @@ import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import InputForm from './InputForm.js';
 import { Button, Spinner, Card } from 'react-bootstrap';
+import './Generate.css';
 
 class Generate extends React.Component {
   constructor(props) {
@@ -83,8 +84,12 @@ class Generate extends React.Component {
 
     return (
       <>
-        <InputForm handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} />
-        {generatedItems}
+      <div className="container">
+        <div className="drop">
+        <InputForm className="inputBox" handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} />
+        {this.state.first ? <div></div> : generatedItems}
+        </div>
+      </div>
       </>
     )
   }
