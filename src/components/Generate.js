@@ -10,16 +10,12 @@ class Generate extends React.Component {
     this.state = {
       generatedImgArr: [],
       prompt: '',
-      loading: false,
-      first: true
     }
   }
 
   handleSubmitPrompt = async (e) => {
     this.setState({
       generatedImgArr: '',
-      loading: true,
-      first: false
     });
     let reqbodyObj = { prompt: this.state.prompt }
     e.preventDefault();
@@ -32,7 +28,6 @@ class Generate extends React.Component {
     let generatedImg = await axios(config);
     this.setState({
       generatedImgArr: generatedImg.data.data,
-      loading: false
     });
   }
 
@@ -70,24 +65,26 @@ class Generate extends React.Component {
 
 
   render() {
-    let generatedItems = [];
+    let generatedItems;
     if (this.state.generatedImgArr) {
       generatedItems = this.state.generatedImgArr.map((item, idx) => {
         return (
           <Card style={{ width: '18rem' }}>
-            {this.state.loading ? <Spinner animation="border" /> : <Card.Img variant="top" src={item.url} key={idx} alt="Generated with Dall-E 2" />}
+            <Card.Img variant="top" src={item.url} key={idx} alt="Generated with Dall-E 2" />
             <Card.Body>
               {this.props.auth0.isAuthenticated && <Button variant= "primary" onClick={() => this.savePrompt(idx)} >Save to Collection</Button>}
             </Card.Body>
           </Card>
         )
       });
+    } else {
+      generatedItems = <Spinner animation="border" />;
     }
 
     return (
       <>
         <InputForm handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} />
-        {this.state.first ? <div></div> : generatedItems}
+        {generatedItems}
       </>
     )
   }

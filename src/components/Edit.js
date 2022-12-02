@@ -11,7 +11,7 @@ class Edit extends Component {
       results: [],
       itemToChange: {},
       isModalShown: false,
-      loading: false
+      loading: false,
     }
   }
 
@@ -81,7 +81,7 @@ class Edit extends Component {
       });
       this.setState({
         results: updatedResultsArray,
-        loading: false
+        loading: false,
       });
     } catch (err) {
     }
