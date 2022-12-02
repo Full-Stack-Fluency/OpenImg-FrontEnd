@@ -37,12 +37,10 @@ class Edit extends Component {
         });
       }
     } catch (error) {
-      console.log(error.message);
     }
   }
 
   handleOpenModal = (itemToUpdate) => {
-    console.log(itemToUpdate)
     this.setState({
       isModalShown: true,
       itemToChange: itemToUpdate
@@ -86,7 +84,6 @@ class Edit extends Component {
         loading: false
       });
     } catch (err) {
-      console.log(err.response.data);
     }
   }
 
@@ -99,7 +96,6 @@ class Edit extends Component {
         results: updatedResults
       })
     } catch (error) {
-      console.log(error.response.data);
     }
   }
 

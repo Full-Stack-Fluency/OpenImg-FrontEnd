@@ -37,7 +37,6 @@ class About extends Component {
       imgSrc: 'https://ca.slack-edge.com/T039KG69K-U0490JKR2H0-808d894b6874-512'
     }
     ]
-    /* TODO: render information about the developers */
     return (
       <>
         <p>About Us</p>
