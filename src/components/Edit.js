@@ -1,10 +1,8 @@
 import { Component } from 'react';
-import Accordion from 'react-bootstrap/Accordion';
-import Button from 'react-bootstrap/Button';
+import { Accordion, Button, Spinner } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import FormModal from './FormModal';
-
 
 class Edit extends Component {
   constructor(props) {
@@ -12,7 +10,8 @@ class Edit extends Component {
     this.state = {
       results: [],
       itemToChange: {},
-      isModalShown: false
+      isModalShown: false,
+      loading: false
     }
   }
 
@@ -21,7 +20,6 @@ class Edit extends Component {
       if (this.props.auth0.isAuthenticated) {
         const res = await this.props.auth0.getIdTokenClaims();
         const jwt = res.__raw;
-        // console.log(jwt);
         let config = {
           method: 'get',
           baseURL: process.env.REACT_APP_SERVER,
@@ -29,17 +27,14 @@ class Edit extends Component {
           headers: {
             "Authorization": `Bearer ${jwt}`
           },
-           params: {
-             "email": `${this.props.auth0.user.email}`
-           }
+          params: {
+            "email": `${this.props.auth0.user.email}`
+          }
         }
         let itemResults = await axios(config);
-        // console.log(axios(config));
         this.setState({
           results: itemResults.data
         });
-
-        // console.log(this.state.results);
       }
     } catch (error) {
       console.log(error.message);
@@ -51,25 +46,21 @@ class Edit extends Component {
     this.setState({
       isModalShown: true,
       itemToChange: itemToUpdate
-    }) 
+    })
   }
 
   handleCloseModal = () => {
     this.setState({
       isModalShown: false,
-    }) 
+    })
   }
 
   handleEditItem = async (e) => {
     e.preventDefault();
+    this.setState({
+      loading: true,
+    });
     try {
-      // need to generate a new URL for the new prompt
-      // send URL to the database as new prompt
-      // step 1: get target prompt saved to a variable
-      // step 2: update the URL for that item
-      // step 3: update state and render items
-
-
       let reqbodyObj = { prompt: e.target.prompt.value }
       let config = {
         method: 'post',
@@ -78,7 +69,6 @@ class Edit extends Component {
         data: reqbodyObj
       }
       let newGeneratedImg = await axios(config);
-
       let newItem = {
         prompt: e.target.prompt.value || this.state.itemToChange.prompt,
         imgSrc: newGeneratedImg.data.data[0].url || 'Image could not be created',
@@ -86,15 +76,14 @@ class Edit extends Component {
         __v: this.state.itemToChange.__v,
         _id: this.state.itemToChange._id
       }
-
       let url = `${process.env.REACT_APP_SERVER}/item/${newItem._id}`;
       let updateItemObj = await axios.put(url, newItem);
-      // find the object we updated in state and replace it with the data we got back from the DB
       let updatedResultsArray = this.state.results.map(item => {
         return item._id === newItem._id ? updateItemObj.data : item;
       });
       this.setState({
         results: updatedResultsArray,
+        loading: false
       });
     } catch (err) {
       console.log(err.response.data);
@@ -125,7 +114,7 @@ class Edit extends Component {
         <Accordion.Item key={idx}>
           <Accordion.Header>{item.prompt}</Accordion.Header>
           <Accordion.Body>
-            <img src={item.imgSrc} alt="idk" />
+            {this.state.loading ? <Spinner animation="border" /> : <img src={item.imgSrc} alt="Generated with Dall-E 2" />}
             <Button
               onClick={() => this.handleOpenModal(item)}
             >Edit Item</Button>
@@ -139,12 +128,11 @@ class Edit extends Component {
 
     return (
       <>
-        <h2>Test</h2>
         <Accordion>
-          {accordionItems}
+          {accordionItems === []? <Spinner animation="border" /> : accordionItems}
         </Accordion>
         <Button className="button" onClick={this.getItems}>Render Page (backup)</Button>
-        <FormModal 
+        <FormModal
           handleEditItem={this.handleEditItem}
           handleCloseModal={this.handleCloseModal}
           isModalShown={this.state.isModalShown}
@@ -155,4 +143,3 @@ class Edit extends Component {
   }
 };
 export default withAuth0(Edit);
-// export default Edit;
