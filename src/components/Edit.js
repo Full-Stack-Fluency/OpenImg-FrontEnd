@@ -17,12 +17,11 @@ class Edit extends Component {
   }
 
   getItems = async () => {
-    console.log('it worked');
     try {
       if (this.props.auth0.isAuthenticated) {
         const res = await this.props.auth0.getIdTokenClaims();
         const jwt = res.__raw;
-        console.log(jwt);
+        // console.log(jwt);
         let config = {
           method: 'get',
           baseURL: process.env.REACT_APP_SERVER,
@@ -34,9 +33,8 @@ class Edit extends Component {
              "email": `${this.props.auth0.user.email}`
            }
         }
-        console.log(config);
         let itemResults = await axios(config);
-        
+        // console.log(axios(config));
         this.setState({
           results: itemResults.data
         });
@@ -91,7 +89,7 @@ class Edit extends Component {
 
       let url = `${process.env.REACT_APP_SERVER}/item/${newItem._id}`;
       let updateItemObj = await axios.put(url, newItem);
-      // find the book we updated in state and replace it with the data we got back from the DB
+      // find the object we updated in state and replace it with the data we got back from the DB
       let updatedResultsArray = this.state.results.map(item => {
         return item._id === newItem._id ? updateItemObj.data : item;
       });

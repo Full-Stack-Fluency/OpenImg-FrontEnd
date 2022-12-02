@@ -77,7 +77,7 @@ class Generate extends React.Component {
     return (
       <>
         {/* <Hamburger /> */}
-        {console.log(this.state.generatedImgObj)}
+        {/* {console.log(this.state.generatedImgObj)} */}
         <InputForm handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} />
         <Button onClick={this.savePrompt} >Save</Button>
         {this.state.first ? <p></p> : !this.state.generatedImgObj && this.state.loading ? <Spinner animation="border" /> : <img src={this.state.generatedImgObj.url} alt="Generated with Dall-E 2"/>}
