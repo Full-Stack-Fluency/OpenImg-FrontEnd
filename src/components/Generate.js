@@ -69,6 +69,7 @@ class Generate extends React.Component {
     })
   }
 
+
   render() {
     let generatedItems = [];
     if (this.state.generatedImgArr) {
@@ -81,7 +82,7 @@ class Generate extends React.Component {
               {/* <Card.Text className="itemImage">
               
             </Card.Text> */}
-              <Button variant="primary" onClick={this.savePrompt}>Save to Collection</Button>
+              {this.props.auth0.isAuthenticated && <Button variant= "primary" onClick={this.savePrompt} >Save to Collection</Button>}
             </Card.Body>
           </Card>
         )
