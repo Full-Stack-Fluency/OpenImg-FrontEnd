@@ -11,7 +11,7 @@ class Edit extends Component {
       results: [],
       itemToChange: {},
       isModalShown: false,
-      loading: false
+      loading: false,
     }
   }
 
@@ -81,7 +81,7 @@ class Edit extends Component {
       });
       this.setState({
         results: updatedResultsArray,
-        loading: false
+        loading: false,
       });
     } catch (err) {
     }
@@ -125,7 +125,7 @@ class Edit extends Component {
     return (
       <>
         <Accordion>
-          {accordionItems === []? <Spinner animation="border" /> : accordionItems}
+          {accordionItems === [] ? <Spinner animation="border" /> : accordionItems}
         </Accordion>
         <Button className="button" onClick={this.getItems}>Render Page (backup)</Button>
         <FormModal
