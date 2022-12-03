@@ -22,6 +22,7 @@ class InputForm extends React.Component {
           })
         }
       }
+
     render() {
         return (
 
@@ -41,11 +42,11 @@ class InputForm extends React.Component {
                     <Form.Control type="text" placeholder="Type to generate image" onChange={this.props.handleFormChange} />
                 </Form.Group>
                 <div className="buttonGen">
-                <Button className="imgGenerator" type="submit">A.I. Image Generation</Button>
+                <Button variant="success" className="imgGenerator" type="submit">A.I. Image Generation</Button>
                 </div>
             </Form>
         )
     }
   }
-  
+
 export default InputForm;
