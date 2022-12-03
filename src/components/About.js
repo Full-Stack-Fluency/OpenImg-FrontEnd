@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button,Navbar,Card } from 'react-bootstrap';
+import './AboutCSS.css';
 
 
 
@@ -15,11 +16,10 @@ class About extends Component {
   
   render() {
 
-
     let personArray =[{
       Name:'Keyan Tabor' ,
       Bio: 'Keyan lives in upstate South Carolina with his wife Whitney and his daughter Alice.They have 2 cats Jekyll and Clyde (yes this was intentional). Prior to attending Code Fellows, Keyan spent 4 years in the United States Marine Corps as an 0311 Infantryman. Upon exiting the Marine Corps, Keyan was in search of what to do with his life next. He took on an apprenticeship working in a factory that built gas tanks for a variety of vehicles. He knew right away this wasnt a long term solution. The timing worked out perfectly because at the same time Solana NFTs took off. As soon as he got involved he was hooked. He now works towards becoming a fullstack software developer so he can return to the community with the ability to be involved in and help build out the next generation of the web (web3).' ,
-      imgSrc: 'https://ca.slack-edge.com/T039KG69K-U043BMUTN8Y-af494fd60f05-512'
+      imgSrc: 'https://i.imgur.com/tpxB7Vo.png'
     }, 
     {
       Name:'DeShon Dixon' ,
@@ -34,22 +34,26 @@ class About extends Component {
     {
       Name:'Oliver Speir' ,
       Bio: 'Hey I’m Oliver Speir! I’m a passionate Software Engineer with experience in full MERN stack. I approach every opportunity with excitement and an open mind. I strive to create value through my detail oriented approach to problem solving. I balance my attention to detail by maintaining a creative mindset. By consistently asking myself if there is a better way to arrive at the solution I’m working toward I gain experience not just in problem solving but creative thinking with every challenge I meet. I am currently expanding my skills to include Python, in hopes of becoming a complete package ready for deployment in any environment. This project has been a blast for me, so thank you for taking the time to engage with it!' ,
-      imgSrc: 'https://ca.slack-edge.com/T039KG69K-U0490JKR2H0-808d894b6874-512'
+      imgSrc: 'https://i.imgur.com/2WJ1vWM.png'
     }
     ]
-    /* TODO: render information about the developers */
+    const imgSrc = `${personArray[this.state.id].imgSrc}`
     return (
       <>
-        <p>About Us</p>
+        <Navbar className="justify-content-center" bg="dark">
         <Button onClick={()=> this.setState({id:0})}>Keyan Tabor</Button>
         <Button onClick={()=> this.setState({id:1})}>DeShon Dixon</Button>
         <Button onClick={()=> this.setState({id:2})}>Jason Christopher</Button>
         <Button onClick={()=> this.setState({id:3})}>Oliver Speir</Button>
-
-
-      <img alt='Words, Sometimes they mean things, but not here' src= {personArray[this.state.id].imgSrc}/>
+        </Navbar>
+      {/* <Card style={{ width: '18rem' }}> */}
+      <div className="bio">
+      <Card className = "card">
+      <Card.Img alt='Profile Picture' variant="top" src= {imgSrc} style={{ width: '50rem' }} className="cardTop"/>
       <p>{personArray[this.state.id].Name}</p>
       <p>{personArray[this.state.id].Bio}</p>
+      </Card>
+      </div>
       </>
     )
   };
