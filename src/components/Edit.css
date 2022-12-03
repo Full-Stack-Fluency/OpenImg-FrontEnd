@@ -1,0 +1,42 @@
+.gridBox{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cards{
+  margin: 30px 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  box-shadow: grey 5px 5px 10px;
+}
+
+.picDiv{
+  /* border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; */
+}
+
+.cardPic{
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.cardBody{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.cardTitle{
+  text-align: center;
+  color: rgb(72, 72, 72);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+}
+
+.buttonDiv{
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+}

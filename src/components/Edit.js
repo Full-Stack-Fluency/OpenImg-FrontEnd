@@ -1,8 +1,10 @@
 import { Component } from 'react';
-import { Card, CardGroup, Button, Spinner } from 'react-bootstrap';
+import { Card, Button, Spinner } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import FormModal from './FormModal';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Edit.css';
 
 class Edit extends Component {
   constructor(props) {
@@ -109,16 +111,20 @@ class Edit extends Component {
     let cardItems = this.state.results.map((item, idx) => {
       return (
         <>
-          <Card key={idx}>
-            {this.state.loading._id === item._id? <Spinner animation="border" /> : <Card.Img src={item.imgSrc} alt="Generated with Dall-E 2" />}
-            <Card.Body>
-              <Card.Title>{this.state.loading._id === item._id? <Spinner animation="border" /> : item.prompt}</Card.Title>
-              <Button
-                onClick={() => this.handleOpenModal(item)}
-              >Edit Item</Button>
-              <Button
-                onClick={() => this.handleDeleteItem(item._id)}
-              >Delete Item</Button>
+          <Card className="cards" key={idx}>
+            <div className="picDiv">
+              {this.state.loading._id === item._id ? <Spinner animation="border" /> : <Card.Img src={item.imgSrc} className="cardPic" alt="Generated with Dall-E 2" />}
+            </div>
+            <Card.Body className="cardBody">
+              <Card.Title className="cardTitle">{this.state.loading._id === item._id ? <Spinner animation="border" /> : item.prompt}</Card.Title>
+              <div className="buttonDiv">
+                <Button
+                  onClick={() => this.handleOpenModal(item)}
+                >Edit Item</Button>
+                <Button
+                  onClick={() => this.handleDeleteItem(item._id)}
+                >Delete Item</Button>
+              </div>
             </Card.Body>
           </Card>
         </>
@@ -127,10 +133,9 @@ class Edit extends Component {
 
     return (
       <>
-        <CardGroup>
+        <section className="gridBox">
           {cardItems === [] ? <Spinner animation="border" /> : cardItems}
-        </CardGroup>
-        <Button className="button" onClick={this.getItems}>Render Page (backup)</Button>
+        </section>
         <FormModal
           handleEditItem={this.handleEditItem}
           handleCloseModal={this.handleCloseModal}
