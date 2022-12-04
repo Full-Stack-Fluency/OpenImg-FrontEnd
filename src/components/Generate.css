@@ -3,10 +3,17 @@ body{
 }
 .container {
   position: relative;
-  display: flex-box;
+  display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
+  padding-top: 7rem;
+}
+.container2 {
+  display:flex
+}
+.popoverShowed {
+  display: flex;
   padding-top: 7rem;
 }
 .card {
@@ -15,7 +22,8 @@ body{
   position: relative;
 }
 .carddd card {
-  min-width: 4000px;
+  min-width: 400px;
+  padding-bottom: 100px;
 }
 .card-img-top {
   min-width: 400px;
