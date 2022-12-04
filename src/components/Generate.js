@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import InputForm from './InputForm.js';
-import { Button, Spinner, Card, Popover, Tabs, Tab, Image } from 'react-bootstrap';
+import { Button, Spinner, Card, Popover } from 'react-bootstrap';
 import './Generate.css';
 
 class Generate extends React.Component {
@@ -31,7 +31,17 @@ class Generate extends React.Component {
       popOverShow3: false,
       popOverShow4: false,
       prompt: '',
-      stopSpinner: false
+      stopSpinner: false,
+      emotionValue0:'',
+      emotionValue1:'',
+      emotionValue2:'',
+      emotionValue3:'',
+      emotionValue4:'',
+      emotionSentimentsArrs0:[],
+      emotionSentimentsArrs1:[],
+      emotionSentimentsArrs2:[],
+      emotionSentimentsArrs3:[],
+      emotionSentimentsArrs4:[]
     }
   }
 
@@ -61,6 +71,7 @@ class Generate extends React.Component {
       popOverShow3: false,
       popOverShow4: false
     });
+    console.log(config);
     let generatedImg = await axios(config);
     this.setState({
       generatedImgArr: generatedImg.data.data,
@@ -84,14 +95,15 @@ class Generate extends React.Component {
     console.log(emotions);
     const poppers = `emotionPopover${x}`;
     const displayPoppers = `displayPopover${x}`
+    const emotionValues = `emotionValue${x}`
+    const emotionSentimentsArrs = `emotionSentimentsArrs${x}`
     if (emotions.data.length !== 0) {
       console.log('emotion return isnt blank');
       this.setState({
         [displayPoppers] : true,
         [poppers]: x,
-        emotionValue: emotions.data[0].emotion.value,
-        emotionSentimentsArr: emotions.data[0].emotion.sentiments,
-        emotionPopover: true,
+        [emotionValues]: emotions.data[0].emotion.value,
+        [emotionSentimentsArrs]: emotions.data[0].emotion.sentiments,
       })
     } else {
       console.log('emotion return is blank');
@@ -232,22 +244,22 @@ class Generate extends React.Component {
                 <div className="popoverShowed">
                   <Popover id="emotion value">
                     <Popover.Header as="h3">
-                     {this.state.emotionValue}
+                     {this.state.emotionValue0}
                     </Popover.Header>
                     <Popover.Body>
-                      Anger :{this.state.emotionSentimentsArr.angry.toFixed(4)}
+                      Anger :{this.state.emotionSentimentsArrs0.angry.toFixed(4)}
                       <br></br>
-                      Disgust: {this.state.emotionSentimentsArr.disgust.toFixed(4)}
+                      Disgust: {this.state.emotionSentimentsArrs0.disgust.toFixed(4)}
                       <br></br>
-                      Fear: {this.state.emotionSentimentsArr.fear.toFixed(4)}
+                      Fear: {this.state.emotionSentimentsArrs0.fear.toFixed(4)}
                       <br></br>
-                      Happy: {this.state.emotionSentimentsArr.happy.toFixed(4)}
+                      Happy: {this.state.emotionSentimentsArrs0.happy.toFixed(4)}
                       <br></br>
-                      Neutral: {this.state.emotionSentimentsArr.neutral.toFixed(4)}
+                      Neutral: {this.state.emotionSentimentsArrs0.neutral.toFixed(4)}
                       <br></br>
-                      Sad: {this.state.emotionSentimentsArr.sad.toFixed(4)}
+                      Sad: {this.state.emotionSentimentsArrs0.sad.toFixed(4)}
                       <br></br>
-                      Surprise: {this.state.emotionSentimentsArr.surprise.toFixed(4)}
+                      Surprise: {this.state.emotionSentimentsArrs0.surprise.toFixed(4)}
                     </Popover.Body>
                   </Popover>
                 </div>
@@ -269,23 +281,23 @@ class Generate extends React.Component {
                   {this.state.displayPopover1 &&
                     <Popover id="emotion value">
                       <Popover.Header as="h3">
-                        {this.state.emotionValue}
+                        {this.state.emotionValue1}
                         {/* {this.state.emotionSentimentsArr} */}
                       </Popover.Header>
                       <Popover.Body>
-                        Anger :{this.state.emotionSentimentsArr.angry.toFixed(4)}
+                        Anger :{this.state.emotionSentimentsArrs1.angry.toFixed(4)}
                         <br></br>
-                        Disgust: {this.state.emotionSentimentsArr.disgust.toFixed(4)}
+                        Disgust: {this.state.emotionSentimentsArrs1.disgust.toFixed(4)}
                         <br></br>
-                        Fear: {this.state.emotionSentimentsArr.fear.toFixed(4)}
+                        Fear: {this.state.emotionSentimentsArrs1.fear.toFixed(4)}
                         <br></br>
-                        Happy: {this.state.emotionSentimentsArr.happy.toFixed(4)}
+                        Happy: {this.state.emotionSentimentsArrs1.happy.toFixed(4)}
                         <br></br>
-                        Neutral: {this.state.emotionSentimentsArr.neutral.toFixed(4)}
+                        Neutral: {this.state.emotionSentimentsArrs1.neutral.toFixed(4)}
                         <br></br>
-                        Sad: {this.state.emotionSentimentsArr.sad.toFixed(4)}
+                        Sad: {this.state.emotionSentimentsArrs1.sad.toFixed(4)}
                         <br></br>
-                        Surprise: {this.state.emotionSentimentsArr.surprise.toFixed(4)}
+                        Surprise: {this.state.emotionSentimentsArrs1.surprise.toFixed(4)}
                       </Popover.Body>
                     </Popover>
                   }
@@ -305,23 +317,23 @@ class Generate extends React.Component {
                   {this.state.displayPopover2 &&
                     <Popover id="emotion value">
                       <Popover.Header as="h3">
-                        {this.state.emotionValue}
+                        {this.state.emotionValue2}
                         {/* {this.state.emotionSentimentsArr} */}
                       </Popover.Header>
                       <Popover.Body>
-                        Anger :{this.state.emotionSentimentsArr.angry.toFixed(4)}
+                        Anger :{this.state.emotionSentimentsArrs2.angry.toFixed(4)}
                         <br></br>
-                        Disgust: {this.state.emotionSentimentsArr.disgust.toFixed(4)}
+                        Disgust: {this.state.emotionSentimentsArrs2.disgust.toFixed(4)}
                         <br></br>
-                        Fear: {this.state.emotionSentimentsArr.fear.toFixed(4)}
+                        Fear: {this.state.emotionSentimentsArrs2.fear.toFixed(4)}
                         <br></br>
-                        Happy: {this.state.emotionSentimentsArr.happy.toFixed(4)}
+                        Happy: {this.state.emotionSentimentsArrs2.happy.toFixed(4)}
                         <br></br>
-                        Neutral: {this.state.emotionSentimentsArr.neutral.toFixed(4)}
+                        Neutral: {this.state.emotionSentimentsArrs2.neutral.toFixed(4)}
                         <br></br>
-                        Sad: {this.state.emotionSentimentsArr.sad.toFixed(4)}
+                        Sad: {this.state.emotionSentimentsArrs2.sad.toFixed(4)}
                         <br></br>
-                        Surprise: {this.state.emotionSentimentsArr.surprise.toFixed(4)}
+                        Surprise: {this.state.emotionSentimentsArrs2.surprise.toFixed(4)}
                       </Popover.Body>
                     </Popover>
                   }
@@ -341,23 +353,23 @@ class Generate extends React.Component {
                   {this.state.displayPopover3 &&
                     <Popover id="emotion value">
                       <Popover.Header as="h3">
-                        {this.state.emotionValue}
+                        {this.state.emotionValue3}
                         {/* {this.state.emotionSentimentsArr} */}
                       </Popover.Header>
                       <Popover.Body>
-                        Anger :{this.state.emotionSentimentsArr.angry.toFixed(4)}
+                        Anger :{this.state.emotionSentimentsArrs3.angry.toFixed(4)}
                         <br></br>
-                        Disgust: {this.state.emotionSentimentsArr.disgust.toFixed(4)}
+                        Disgust: {this.state.emotionSentimentsArrs3.disgust.toFixed(4)}
                         <br></br>
-                        Fear: {this.state.emotionSentimentsArr.fear.toFixed(4)}
+                        Fear: {this.state.emotionSentimentsArrs3.fear.toFixed(4)}
                         <br></br>
-                        Happy: {this.state.emotionSentimentsArr.happy.toFixed(4)}
+                        Happy: {this.state.emotionSentimentsArrs3.happy.toFixed(4)}
                         <br></br>
-                        Neutral: {this.state.emotionSentimentsArr.neutral.toFixed(4)}
+                        Neutral: {this.state.emotionSentimentsArrs3.neutral.toFixed(4)}
                         <br></br>
-                        Sad: {this.state.emotionSentimentsArr.sad.toFixed(4)}
+                        Sad: {this.state.emotionSentimentsArrs3.sad.toFixed(4)}
                         <br></br>
-                        Surprise: {this.state.emotionSentimentsArr.surprise.toFixed(4)}
+                        Surprise: {this.state.emotionSentimentsArrs3.surprise.toFixed(4)}
                       </Popover.Body>
                     </Popover>
                   }
@@ -377,23 +389,23 @@ class Generate extends React.Component {
                   {this.state.displayPopover4 &&
                     <Popover id="emotion value">
                       <Popover.Header as="h3">
-                        {this.state.emotionValue}
+                        {this.state.emotionValue4}
                         {/* {this.state.emotionSentimentsArr} */}
                       </Popover.Header>
                       <Popover.Body>
-                        Anger :{this.state.emotionSentimentsArr.angry.toFixed(4)}
+                        Anger :{this.state.emotionSentimentsArrs4.angry.toFixed(4)}
                         <br></br>
-                        Disgust: {this.state.emotionSentimentsArr.disgust.toFixed(4)}
+                        Disgust: {this.state.emotionSentimentsArrs4.disgust.toFixed(4)}
                         <br></br>
-                        Fear: {this.state.emotionSentimentsArr.fear.toFixed(4)}
+                        Fear: {this.state.emotionSentimentsArrs4.fear.toFixed(4)}
                         <br></br>
-                        Happy: {this.state.emotionSentimentsArr.happy.toFixed(4)}
+                        Happy: {this.state.emotionSentimentsArrs4.happy.toFixed(4)}
                         <br></br>
-                        Neutral: {this.state.emotionSentimentsArr.neutral.toFixed(4)}
+                        Neutral: {this.state.emotionSentimentsArrs4.neutral.toFixed(4)}
                         <br></br>
-                        Sad: {this.state.emotionSentimentsArr.sad.toFixed(4)}
+                        Sad: {this.state.emotionSentimentsArrs4.sad.toFixed(4)}
                         <br></br>
-                        Surprise: {this.state.emotionSentimentsArr.surprise.toFixed(4)}
+                        Surprise: {this.state.emotionSentimentsArrs4.surprise.toFixed(4)}
                       </Popover.Body>
                     </Popover>
                   }
