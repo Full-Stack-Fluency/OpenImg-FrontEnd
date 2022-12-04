@@ -54,7 +54,12 @@ class Generate extends React.Component {
       displayPopover1: false,
       displayPopover2: false,
       displayPopover3: false,
-      displayPopover4: false
+      displayPopover4: false,
+      popOverShow0: false,
+      popOverShow1: false,
+      popOverShow2: false,
+      popOverShow3: false,
+      popOverShow4: false
     });
     let generatedImg = await axios(config);
     this.setState({
