@@ -3,11 +3,27 @@ body{
 }
 .container {
   position: relative;
-  display: flex;
+  display: flex-box;
   justify-content: center;
   align-items: center;
   margin: auto;
   padding-top: 7rem;
+}
+.card {
+  display:grid;
+  min-width: 50rem;
+  position: relative;
+}
+.carddd card {
+  min-width: 4000px;
+}
+.card-img-top {
+  min-width: 400px;
+  display: grid;
+  position: relative;
+}
+.button1 btn btn-primary {
+  position: relative;
 }
 
 .container .drop {
