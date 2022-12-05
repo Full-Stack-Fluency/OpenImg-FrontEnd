@@ -69,3 +69,19 @@ form {
   align-items: center;
 
 }
+
+.imgCard {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  padding-top: 17vw;
+  padding-left: 10vw;
+  padding-bottom: 50vw;
+  padding-right: 10vw;
+  flex-wrap: wrap;
+
+}
