@@ -4,7 +4,6 @@ import { withAuth0 } from '@auth0/auth0-react';
 import InputForm from './InputForm.js';
 import { Button, Spinner, Card, Popover } from 'react-bootstrap';
 import './Generate.css';
-import Confetti from "react-confetti";
 
 class Generate extends React.Component {
   constructor(props) {
@@ -60,7 +59,6 @@ class Generate extends React.Component {
       data: reqbodyObj
     }
     this.setState({
-      stopConfetti:true,
       stopSpinner: true,
       popOverShow:false,
       displayPopover0: false,
@@ -74,7 +72,6 @@ class Generate extends React.Component {
       popOverShow3: false,
       popOverShow4: false
     });
-    // console.log(config);
     let generatedImg = await axios(config);
     if (generatedImg.data !== true) {
     this.setState({
@@ -85,7 +82,6 @@ class Generate extends React.Component {
       img4Url: generatedImg.data.data[3].url,
       img5Url: generatedImg.data.data[4].url,
       stopSpinner: false,
-      stopConfetti: true
     });
   }else {
     this.setState ({
@@ -208,7 +204,7 @@ class Generate extends React.Component {
         <div className="container">
           <div className="drop">
             <InputForm className="inputBox" handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} promptFlagged = {this.state.promptFlagged} />
-            {this.state.stopSpinner && this.state.stopConfetti && <Spinner animation="border" /> && <Confetti className="confetti" width={10000} height={2000} gravity={0.2} />}
+            {this.state.stopSpinner && <Spinner animation="border" />}
           </div>
         </div>
         {/* <Tabs
