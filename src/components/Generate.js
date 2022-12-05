@@ -43,7 +43,12 @@ class Generate extends React.Component {
       emotionSentimentsArrs2: [],
       emotionSentimentsArrs3: [],
       emotionSentimentsArrs4: [],
-      promptFlagged: false
+      promptFlagged: false,
+      saveSuccess0: false,
+      saveSuccess1: false,
+      saveSuccess2: false,
+      saveSuccess3: false,
+      saveSuccess4: false,
     }
   }
 
@@ -139,9 +144,14 @@ class Generate extends React.Component {
         },
         data: schemaObj
       }
-
       try {
-        await axios(config);
+        const savers = `saveSuccess${idx}`
+        const saved = await axios(config);
+        console.log(saved);
+        console.log(savers);
+        this.setState({
+          [savers]: true
+        });
       } catch (err) {
       }
     }
@@ -246,7 +256,7 @@ class Generate extends React.Component {
               <Card className="glassCard">
                 <Card.Img variant="top" src={this.state.img1Url} key={0} alt="Generated with Dall-E 2" />
                 <Card.Body>
-                  {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(0)} >Save to Collection</Button>}
+                  {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(0)} >{this.state.saveSuccess0? <>Saved </> : <>Save to Collection</>}</Button>}
                   {this.state.img1Url && <Button className="button1" onClick={() => this.getEmotion(0)}>Get Emotion</Button>}
                 </Card.Body>
               </Card>
@@ -289,7 +299,7 @@ class Generate extends React.Component {
               <Card className="glassCard">
                 <Card.Img variant="top" src={this.state.img2Url} key={1} alt="Generated with Dall-E 2" />
                 <Card.Body>
-                  {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(1)} >Save to Collection</Button>}
+                  {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(1)} > {this.state.saveSuccess1? <>Saved </> : <>Save to Collection</>} </Button>}
                   {this.state.img1Url && <Button className="button2" onClick={() => this.getEmotion(1)}>Get Emotion</Button>}
                   {this.state.displayPopover1 &&
                     <Popover id="emotion value">
@@ -327,7 +337,7 @@ class Generate extends React.Component {
               <Card className="glassCard">
                 <Card.Img variant="top" src={this.state.img3Url} key={2} alt="Generated with Dall-E 2" />
                 <Card.Body>
-                  {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(2)} >Save to Collection</Button>}
+                  {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(2)} >{this.state.saveSuccess2? <>Saved </> : <>Save to Collection</>}</Button>}
                   {this.state.img1Url && <Button className="button3" onClick={() => this.getEmotion(2)}>Get Emotion</Button>}
                   {this.state.displayPopover2 &&
                     <Popover id="emotion value">
@@ -365,7 +375,7 @@ class Generate extends React.Component {
               <Card className="glassCard">
                 <Card.Img variant="top" src={this.state.img4Url} key={3} alt="Generated with Dall-E 2" />
                 <Card.Body>
-                  {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(3)} >Save to Collection</Button>}
+                  {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(3)} >{this.state.saveSuccess3? <>Saved </> : <>Save to Collection</>}</Button>}
                   {this.state.img1Url && <Button className="button4" onClick={() => this.getEmotion(3)}>Get Emotion</Button>}
                   {this.state.displayPopover3 &&
                     <Popover id="emotion value">
@@ -402,7 +412,7 @@ class Generate extends React.Component {
               <Card className="glassCard">
                 {this.state.img1Url && <Card.Img variant="top" src={this.state.img5Url} key={4} alt="Generated with Dall-E 2" />}
                 <Card.Body>
-                  {this.props.auth0.isAuthenticated && this.state.img1Url && <Button className="button5" variant="primary" onClick={() => this.savePrompt(4)} >Save to Collection</Button>}
+                  {this.props.auth0.isAuthenticated && this.state.img1Url && <Button className="button5" variant="primary" onClick={() => this.savePrompt(4)} >{this.state.saveSuccess4? <>Saved </> : <>Save to Collection</>}</Button>}
                   {this.state.img1Url && <Button onClick={() => this.getEmotion(4)}>Get Emotion</Button>}
                   {this.state.displayPopover4 &&
                     <Popover id="emotion value">
