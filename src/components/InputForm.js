@@ -43,6 +43,16 @@ class InputForm extends React.Component {
                         </Popover.Body>
                     </Popover>
                 }
+                {this.props.promptFlagged && 
+                    <Popover id = "flaggedPopover">
+                        <Popover.Header as="h3">
+                            Prompt Flagged
+                        </Popover.Header>
+                        <Popover.Body>
+                            Requests need to be school friendly
+                        </Popover.Body>
+                    </Popover>
+                }
                 </div>
             </Form>
         )

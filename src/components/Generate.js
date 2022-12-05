@@ -41,7 +41,8 @@ class Generate extends React.Component {
       emotionSentimentsArrs1:[],
       emotionSentimentsArrs2:[],
       emotionSentimentsArrs3:[],
-      emotionSentimentsArrs4:[]
+      emotionSentimentsArrs4:[],
+      promptFlagged: false
     }
   }
 
@@ -71,8 +72,9 @@ class Generate extends React.Component {
       popOverShow3: false,
       popOverShow4: false
     });
-    console.log(config);
+    // console.log(config);
     let generatedImg = await axios(config);
+    if (generatedImg.data !== true) {
     this.setState({
       generatedImgArr: generatedImg.data.data,
       img1Url: generatedImg.data.data[0].url,
@@ -82,6 +84,12 @@ class Generate extends React.Component {
       img5Url: generatedImg.data.data[4].url,
       stopSpinner: false
     });
+  }else {
+    this.setState ({
+      promptFlagged: true,
+      stopSpinner: false
+    })
+  }
   }
   getEmotion = async (x) => {
     let reqbodyObj = { url: this.state.generatedImgArr[x].url }
@@ -194,7 +202,7 @@ class Generate extends React.Component {
       <>
         <div className="container">
           <div className="drop">
-            <InputForm className="inputBox" handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} />
+            <InputForm className="inputBox" handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} promptFlagged = {this.state.promptFlagged} />
             {this.state.stopSpinner && <Spinner animation="border" />}
           </div>
         </div>
