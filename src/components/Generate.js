@@ -260,7 +260,7 @@ class Generate extends React.Component {
                   {this.state.img1Url && <Button className="button1" onClick={() => this.getEmotion(0)}>Get Emotion</Button>}
                 </Card.Body>
               </Card>
-              </Tilt>
+              
 
               {this.state.displayPopover0 &&
                 <div className="popoverShowed">
@@ -295,6 +295,7 @@ class Generate extends React.Component {
                   </Popover>
                 </div>
               }
+              </Tilt>
               <Tilt>
               <Card className="glassCard">
                 <Card.Img variant="top" src={this.state.img2Url} key={1} alt="Generated with Dall-E 2" />
