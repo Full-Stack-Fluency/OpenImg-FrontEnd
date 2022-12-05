@@ -35,9 +35,10 @@ class InputForm extends React.Component {
                 <div className="buttonGen">
                 <button className="imgGenerator" type="submit">Image Generation</button>
                 {this.state.popoverDisplay && 
-                <div className="mainPrompt">
-                    <Popover id = "error message for form not submit correctly">
-                        <Popover.Header className="modalTitle"as="h3">
+                    <div className = "requiredPopover">
+                    <Popover id = "requiredPopover">
+                        <Popover.Header id="requiredPopoverHeader" as="h2">
+
                             Prompt Required
                         </Popover.Header>
                         
@@ -45,17 +46,20 @@ class InputForm extends React.Component {
                             Fill in form before you click Image Generation
                         </Popover.Body>
                     </Popover>
-                      </div>
+                    </div>
+
                 }
-                {this.props.promptFlagged && 
+                {this.props.promptFlagged &&
+                    <div className = "flaggedPopover">
                     <Popover id = "flaggedPopover">
-                        <Popover.Header as="h3">
+                        <Popover.Header id = "flaggedPopoverHeader" as="h2">
                             Prompt Flagged
                         </Popover.Header>
                         <Popover.Body>
                             Requests need to be school friendly
                         </Popover.Body>
                     </Popover>
+                    </div>
                 }
                 
                 </div>

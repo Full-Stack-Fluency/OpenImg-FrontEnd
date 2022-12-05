@@ -34,7 +34,55 @@
 }
 
 
-.mainPrompt {
-  padding-top: 2vw;
-  width: 20rem;
+#requiredPopover {
+  background-color: rgba(255, 255, 255, 0.5);
+  /* background:none; */
+  backdrop-filter: blur(5px);
 }
+.requiredPopover{
+  margin-top: 70px;
+  position: absolute;
+}
+.popover-arrow::before {
+  background: none;
+  color: none;
+}
+.popover-arrow::after {
+  background: none;
+  color: none;
+}
+.popover-arrow {
+  color:black;
+}
+#requiredPopoverHeader {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+
+
+#flaggedPopover {
+  background-color: rgba(255, 255, 255, 0.5);
+  /* background:none; */
+  backdrop-filter: blur(5px);
+}
+.flaggedPopover{
+  margin-top: 70px;
+  position: absolute;
+}
+.popover-arrow::before {
+  background: none;
+  color: none;
+}
+.popover-arrow::after {
+  background: none;
+  color: none;
+}
+.popover-arrow {
+  color:black;
+}
+#flaggedPopoverHeader {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
