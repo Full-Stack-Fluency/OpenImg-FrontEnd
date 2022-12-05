@@ -1,12 +1,14 @@
 body {
-  border-radius: 2rem;
+  border-radius: 2vw;
   text-align: center;
 }
 
 .logButton {
-  padding-right: 38vw;
-
+  left: 8vw;
+  position: absolute;
+  width: 106vw;
 }
+
 
 .navbar-toggler-icon {
   padding-left: 2vw;
@@ -25,6 +27,6 @@ body {
   padding-top: 1vw;
   font-weight: bolder;
   background: none;
-  width: 112rem;
+  width: 106vw;
   border-radius: 10px;
 }
