@@ -86,7 +86,7 @@ class Generate extends React.Component {
       })
     }
   }
-  
+
   getEmotion = async (x) => {
     let reqbodyObj = { url: this.state.generatedImgArr[x].url }
     const config = {
@@ -142,12 +142,10 @@ class Generate extends React.Component {
       }
       try {
         const savers = `saveSuccess${idx}`
-        const saved = await axios(config);
-        if (saved.data.status === 'OK') {
-          this.setState({
-            [savers]: true
-          });
-        }
+        await axios(config);
+        this.setState({
+          [savers]: true
+        });
       } catch (err) {
       }
     }
