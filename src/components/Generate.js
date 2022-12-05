@@ -94,11 +94,18 @@ class Generate extends React.Component {
       url: '/item/emotion',
       data: reqbodyObj
     }
+    const emoteSpinners = `emotionSpinner${x}`;
+    this.setState({
+      [emoteSpinners]: true
+    })
     const emotions = await axios(config);
     const poppers = `emotionPopover${x}`;
     const displayPoppers = `displayPopover${x}`
     const emotionValues = `emotionValue${x}`
     const emotionSentimentsArrs = `emotionSentimentsArrs${x}`
+    this.setState({
+      [emoteSpinners]: false
+    })
     if (emotions.data.length !== 0) {
       this.setState({
         [displayPoppers]: true,
@@ -172,8 +179,7 @@ class Generate extends React.Component {
                 <Card.Body>
                   {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(0)} >{this.state.saveSuccess0? <>Saved </> : <>Save to Collection</>}</Button>}
                   {this.state.img1Url && <Button className="button1" onClick={() => this.getEmotion(0)}>Get Emotion</Button>}
-                </Card.Body>
-              </Card>
+                  {this.state.emotionSpinner0 && <Spinner animation="grow" variant="dark"/>}
               {this.state.displayPopover0 &&
                 <div className="popoverShowed">
                   <Popover id="emotion value">
@@ -207,6 +213,8 @@ class Generate extends React.Component {
                   </Popover>
                 </div>
               }
+              </Card.Body>
+              </Card>
               </Tilt>
               <Tilt>
               <Card className="glassCard">
@@ -214,6 +222,7 @@ class Generate extends React.Component {
                 <Card.Body>
                   {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(1)} > {this.state.saveSuccess1? <>Saved </> : <>Save to Collection</>} </Button>}
                   {this.state.img1Url && <Button className="button2" onClick={() => this.getEmotion(1)}>Get Emotion</Button>}
+                  {this.state.emotionSpinner1 && <Spinner animation="grow" variant="dark"/>}
                   {this.state.displayPopover1 &&
                     <Popover id="emotion value">
                       <Popover.Header as="h3">
@@ -252,6 +261,7 @@ class Generate extends React.Component {
                 <Card.Body>
                   {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(2)} >{this.state.saveSuccess2? <>Saved </> : <>Save to Collection</>}</Button>}
                   {this.state.img1Url && <Button className="button3" onClick={() => this.getEmotion(2)}>Get Emotion</Button>}
+                  {this.state.emotionSpinner2 && <Spinner animation="grow" variant="dark"/>}
                   {this.state.displayPopover2 &&
                     <Popover id="emotion value">
                       <Popover.Header as="h3">
@@ -290,6 +300,7 @@ class Generate extends React.Component {
                 <Card.Body>
                   {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(3)} >{this.state.saveSuccess3? <>Saved </> : <>Save to Collection</>}</Button>}
                   {this.state.img1Url && <Button className="button4" onClick={() => this.getEmotion(3)}>Get Emotion</Button>}
+                  {this.state.emotionSpinner3 && <Spinner animation="grow" variant="dark"/>}
                   {this.state.displayPopover3 &&
                     <Popover id="emotion value">
                       <Popover.Header as="h3">
@@ -322,6 +333,44 @@ class Generate extends React.Component {
                 </Card.Body>
               </Card>
               </Tilt>
+              <Card className="glassCard">
+                {this.state.img1Url && <Card.Img variant="top" src={this.state.img5Url} key={4} alt="Generated with Dall-E 2" />}
+                <Card.Body>
+                  {this.props.auth0.isAuthenticated && this.state.img1Url && <Button className="button5" variant="primary" onClick={() => this.savePrompt(4)} >{this.state.saveSuccess4? <>Saved </> : <>Save to Collection</>}</Button>}
+                  {this.state.img1Url && <Button onClick={() => this.getEmotion(4)}>Get Emotion</Button>}
+                  {this.state.emotionSpinner4 && <Spinner animation="grow" variant="dark"/>}
+                  {this.state.displayPopover4 &&
+                    <Popover id="emotion value">
+                      <Popover.Header as="h3">
+                        {this.state.emotionValue4}
+                        {/* {this.state.emotionSentimentsArr} */}
+                      </Popover.Header>
+                      <Popover.Body>
+                        Anger :{this.state.emotionSentimentsArrs4.angry.toFixed(4)}
+                        <br></br>
+                        Disgust: {this.state.emotionSentimentsArrs4.disgust.toFixed(4)}
+                        <br></br>
+                        Fear: {this.state.emotionSentimentsArrs4.fear.toFixed(4)}
+                        <br></br>
+                        Happy: {this.state.emotionSentimentsArrs4.happy.toFixed(4)}
+                        <br></br>
+                        Neutral: {this.state.emotionSentimentsArrs4.neutral.toFixed(4)}
+                        <br></br>
+                        Sad: {this.state.emotionSentimentsArrs4.sad.toFixed(4)}
+                        <br></br>
+                        Surprise: {this.state.emotionSentimentsArrs4.surprise.toFixed(4)}
+                      </Popover.Body>
+                    </Popover>
+                  }
+                  {this.state.popOverShow4 &&
+                    <Popover id="failed">
+                      <Popover.Header as="h3">
+                        Unable to read emotion
+                      </Popover.Header>
+                    </Popover>}
+                </Card.Body>
+              </Card>
+
             </>
           }
         </div>
