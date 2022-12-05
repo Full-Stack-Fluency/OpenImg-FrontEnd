@@ -11,7 +11,7 @@ class Hamburger extends React.Component {
     return (
       <>
       <div className="menu">
-        <Navbar collapseOnSelect expand="xxxl" bg="white" variant="white" >
+        <Navbar collapseOnSelect expand="xxxl" sticky="top" >
                 <Navbar.Toggle />
                 <div className="logButton">
                 {this.props.auth0.isAuthenticated ? <LogoutButton /> : <LoginButton />}

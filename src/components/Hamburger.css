@@ -1,16 +1,25 @@
-/* .logButton {
- padding-right: 3vw;
+ body {
+  border-radius: 2rem;
+ }
+ .logButton {
+ padding-right: 38vw;
 
-} */
-
-.navbar-toggler-icon {
-  padding-left: 3vw;
-  font-size: 2vw;
-  background: none;
 }
 
-/* .menu {
-  padding-left: 3vw;
+.navbar-toggler-icon {
+  padding-left: 2vw;
+  font-size: 3vw;
+  background: none;
+}
+.navbar-nav {
+  font-size: larger;
+}
+ .menu {
+  padding-left: 50vw;
+  padding-right: 4vw;
   padding-top: 1vw;
   font-weight: bolder;
-} */
+  background: none;
+  width: 112rem;
+  border-radius: 10px;
+} 
