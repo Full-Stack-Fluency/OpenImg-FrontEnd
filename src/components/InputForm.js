@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button, Popover } from 'react-bootstrap';
+import { Form, Popover } from 'react-bootstrap';
 import './InputForm.css';
 
 class InputForm extends React.Component {
@@ -28,11 +28,12 @@ class InputForm extends React.Component {
 
             <Form onSubmit={this.handleRequireInputToGenerate}>
                 <Form.Group controlId='prompt'>
-                    <Form.Label className="OpenImg-Prompt">OpenImg</Form.Label>
-                    <Form.Control type="text" placeholder="Type to generate image" onChange={this.props.handleFormChange} />
+                    <Form.Label className="OpenImg-Prompt">
+                      <img className="logo" src="/images/openImg.png" alt="" /></Form.Label>
+                    <Form.Control className="theBox" type="text" placeholder="Type to generate image" onChange={this.props.handleFormChange} />
                 </Form.Group>
                 <div className="buttonGen">
-                <Button variant="success" className="imgGenerator" type="submit">A.I. Image Generation</Button>
+                <button className="imgGenerator" type="submit">Image Generation</button>
                 {this.state.popoverDisplay && 
                     <Popover id = "error message for form not submit correctly">
                         <Popover.Header as="h3">

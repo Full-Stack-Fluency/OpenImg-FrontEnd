@@ -2,4 +2,13 @@ h3 {
   font-size: 2rem;
   font-weight:700;
   color: rgb(82, 82, 82);
+  transition: .3s;
+  text-align: center;
+}
+
+h3:hover {
+  font-size: 2rem;
+  font-weight:700;
+  color: rgb(0, 0, 0);
+  text-align: center;
 }

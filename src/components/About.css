@@ -20,7 +20,7 @@ body::before {
     width:50%;
     height:140%;
     background:linear-gradient(rgb(0, 255, 213),rgb(255, 0, 251));
-    transition: 0.5s;
+    transition: 0.3s;
     clip-path: circle(50% at 1% 1%);
     
 }
@@ -31,7 +31,7 @@ body::after {
     position: absolute;
     top:20;
     left: 0;
-    width:100%;
+    width:110%;
     height:190%;
     transition: 0.5s;
     background: linear-gradient(rgb(255, 0, 0),rgb(255, 0, 251));
@@ -39,6 +39,8 @@ body::after {
 }
 
 .glassContainer {
+    padding-top: 5%;
+    padding-left: 10%;
    position: relative;
    display: flex;
    justify-content: center;
@@ -162,7 +164,7 @@ body::after {
 .modal img {
     display: flex;
     justify-content: center;
-    height: 150px;
+    height: 200px;
     margin: auto;
     right: 3rem;
     border-radius: 70%;

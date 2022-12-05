@@ -1,5 +1,6 @@
  body {
   border-radius: 2rem;
+  text-align: center;
  }
  .logButton {
  padding-right: 38vw;
@@ -10,6 +11,7 @@
   padding-left: 2vw;
   font-size: 3vw;
   background: none;
+  color: black;
 }
 .navbar-nav {
   font-size: larger;
