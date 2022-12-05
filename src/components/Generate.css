@@ -99,3 +99,9 @@ body::after {
 .glassContainer .glassCard {
   width: 20%;
 }
+
+.loading{
+ padding-top: 18vw;
+ padding-right: 1vw;
+ position: absolute;
+}
