@@ -1,20 +1,33 @@
-.OpenImg-Prompt {
-  font-weight: bolder;
-  color: rgb(7, 157, 19);
-  font-size: 3vw;
-  padding-bottom: 1vw;
-  display: flex;
-  justify-content: center;
-  
-}
 
-button.imgGenerator {
-  width: 10vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+.logo {
+top:-60px;
+ width: 23rem;
+ height: 5.2rem;
+ position: relative;
 
+}
 .buttonGen {
   padding: 2vw;
+  text-align: center;
+  display: flex;
+  border-radius: 70%;
+}
+
+.imgGenerator {
+  width:220px;
+  height:50px;
+  color: rgb(255, 255, 255);
+  border: none;
+  background: linear-gradient(rgb(0, 0, 0),rgb(0, 0, 0));
+  border-radius: 30px;
+  font-weight: bolder;
+}
+
+
+
+.OpenImg-Prompt {
+
+  height: 5px;
+  width: 30%;
+  bottom: 5%;
 }

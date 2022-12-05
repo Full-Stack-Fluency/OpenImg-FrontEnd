@@ -36,8 +36,8 @@ body{
 
 .container .drop {
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   box-shadow: inset 20px 20px 20px rgba(0,0,0,0.05), 
   25px 35px 20px rgba(0,0,0,0.05),
   25px 30px 30px rgba(0,0,0,0.05),
@@ -68,4 +68,33 @@ form {
   justify-content: space-between;
   align-items: center;
 
+}
+
+.imgCard {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  padding-top: 17vw;
+  padding-left: 10vw;
+  padding-bottom: 50vw;
+  padding-right: 10vw;
+  flex-wrap: wrap;
+
+}
+
+body::after {
+  transition: 0.5s;
+}
+
+.confetti {
+  display: inline-block;
+  position: relative;
+  left: 70%;
+  margin: -15rem;
+  width: 200%;
+  height: 100%;
 }
