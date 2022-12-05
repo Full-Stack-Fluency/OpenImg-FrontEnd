@@ -18,14 +18,14 @@ class Hamburger extends React.Component {
                 </div>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                    <LinkContainer className="about" to="/about">
-                        <Nav.Link href="/about">About</Nav.Link>
-                    </LinkContainer>
                     <LinkContainer to="/">
                         <Nav.Link href="/">Generate</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/edit">
                         <Nav.Link href="/edit">View Saved</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer className="about" to="/about">
+                        <Nav.Link href="/about">About</Nav.Link>
                     </LinkContainer>
                     </Nav>
                 </Navbar.Collapse>

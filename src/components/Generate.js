@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import InputForm from './InputForm.js';
+import Tilt from 'react-parallax-tilt';
 import { Button, Spinner, Card, Popover } from 'react-bootstrap';
 import './Generate.css';
 
@@ -212,7 +213,7 @@ class Generate extends React.Component {
           id="ImageResultsTabs"
           className="mb-3"
         >
-      <Tab eventKey="Result 1" title="Result 1">
+      <Tab eventKey="Result " title="Result 1">
         {this.state.img1Url && <Image src = {this.state.img1Url}/>}
         {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant= "primary" onClick={() => this.savePrompt(0)} >Save to Collection</Button>}
         {this.state.img1Url && <Button className = "button1" onClick={()=>this.getEmotion(0)}>Get Emotion</Button>}
@@ -238,16 +239,18 @@ class Generate extends React.Component {
         {this.state.img1Url && <Button onClick={()=>this.getEmotion(4)}>Get Emotion</Button>}
       </Tab> 
     </Tabs> */}
-        <div className="container2">
+        <div className="glassContainer">
           {this.state.img1Url &&
             <>
-              <Card className="carddd">
+            <Tilt>
+              <Card className="glassCard">
                 <Card.Img variant="top" src={this.state.img1Url} key={0} alt="Generated with Dall-E 2" />
                 <Card.Body>
                   {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(0)} >Save to Collection</Button>}
                   {this.state.img1Url && <Button className="button1" onClick={() => this.getEmotion(0)}>Get Emotion</Button>}
                 </Card.Body>
               </Card>
+              </Tilt>
 
               {this.state.displayPopover0 &&
                 <div className="popoverShowed">
@@ -282,7 +285,8 @@ class Generate extends React.Component {
                   </Popover>
                 </div>
               }
-              <Card className="carddd">
+              <Tilt>
+              <Card className="glassCard">
                 <Card.Img variant="top" src={this.state.img2Url} key={1} alt="Generated with Dall-E 2" />
                 <Card.Body>
                   {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(1)} >Save to Collection</Button>}
@@ -318,7 +322,9 @@ class Generate extends React.Component {
                     </Popover>}
                 </Card.Body>
               </Card>
-              <Card className="carddd">
+              </Tilt>
+              <Tilt>
+              <Card className="glassCard">
                 <Card.Img variant="top" src={this.state.img3Url} key={2} alt="Generated with Dall-E 2" />
                 <Card.Body>
                   {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(2)} >Save to Collection</Button>}
@@ -354,7 +360,9 @@ class Generate extends React.Component {
                     </Popover>}
                 </Card.Body>
               </Card>
-              <Card className="carddd">
+              </Tilt>
+              <Tilt>
+              <Card className="glassCard">
                 <Card.Img variant="top" src={this.state.img4Url} key={3} alt="Generated with Dall-E 2" />
                 <Card.Body>
                   {this.props.auth0.isAuthenticated && this.state.img1Url && <Button variant="primary" onClick={() => this.savePrompt(3)} >Save to Collection</Button>}
@@ -390,7 +398,8 @@ class Generate extends React.Component {
                     </Popover>}
                 </Card.Body>
               </Card>
-              <Card className="carddd">
+              </Tilt>
+              <Card className="glassCard">
                 {this.state.img1Url && <Card.Img variant="top" src={this.state.img5Url} key={4} alt="Generated with Dall-E 2" />}
                 <Card.Body>
                   {this.props.auth0.isAuthenticated && this.state.img1Url && <Button className="button5" variant="primary" onClick={() => this.savePrompt(4)} >Save to Collection</Button>}
