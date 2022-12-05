@@ -15,25 +15,25 @@ class App extends React.Component {
   render() {
     return (
       <>
-      
-          <Router>
-            <Hamburger/>
-            <Routes>
-              <Route
-                exact path="/"
-                element= {<Generate />}
-              >
-              </Route>
-              <Route
-                exact path="/about"
-                element={<About />}>
-              </Route>
-              <Route
-                exact path="/edit"
-                element={this.props.auth0.isAuthenticated? <Edit /> : <h1>Please Log in to Continue</h1>}>
-              </Route>
-            </Routes>
-      </Router>
+
+        <Router>
+          <Hamburger />
+          <Routes>
+            <Route
+              exact path="/"
+              element={<Generate />}
+            >
+            </Route>
+            <Route
+              exact path="/about"
+              element={<About />}>
+            </Route>
+            <Route
+              exact path="/edit"
+              element={this.props.auth0.isAuthenticated ? <Edit /> : <h1>Please Log in to Continue</h1>}>
+            </Route>
+          </Routes>
+        </Router>
       </>
     )
   }

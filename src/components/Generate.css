@@ -1,6 +1,7 @@
-body{ 
+body {
   margin: auto;
 }
+
 .container {
   padding-top: 5%;
   padding-left: 10%;
@@ -12,22 +13,27 @@ body{
   flex-wrap: wrap;
   z-index: 1;
 }
+
 .container2 {
-  display:flex
+  display: flex
 }
+
 .popoverShowed {
   display: flex;
   padding-top: 7rem;
 }
+
 .card {
-  display:grid;
+  display: grid;
   min-width: 50rem;
   position: relative;
 }
+
 .carddd card {
   min-width: 400px;
   padding-bottom: 100px;
 }
+
 .card-img-top {
   min-width: 200px;
   display: flex;
@@ -35,6 +41,7 @@ body{
   align-content: center;
 
 }
+
 .button1 btn btn-primary {
   position: relative;
 }
@@ -43,15 +50,15 @@ body{
   position: relative;
   width: 600px;
   height: 600px;
-  box-shadow: inset 20px 20px 20px rgba(0,0,0,0.05), 
-  25px 35px 20px rgba(0,0,0,0.05),
-  25px 30px 30px rgba(0,0,0,0.05),
-  inset -20px -20px 25px rgba(255,255,255,0.9);
+  box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+    25px 35px 20px rgba(0, 0, 0, 0.05),
+    25px 30px 30px rgba(0, 0, 0, 0.05),
+    inset -20px -20px 25px rgba(255, 255, 255, 0.9);
   transition: 0.5s;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 78% 22% 71% 29% / 36% 33% 67% 64% ; 
+  border-radius: 78% 22% 71% 29% / 36% 33% 67% 64%;
   padding-top: 2rem;
 }
 
@@ -60,7 +67,7 @@ body{
 
 }
 
-.container .drop .content{
+.container .drop .content {
   position: relative;
   display: flex;
   justify-content: center;
@@ -88,7 +95,7 @@ form {
   padding-bottom: 50vw;
   padding-right: 10vw;
   flex-wrap: wrap;
- 
+
 
 }
 
@@ -100,8 +107,8 @@ body::after {
   width: 20%;
 }
 
-.loading{
- padding-top: 18vw;
- padding-right: 1vw;
- position: absolute;
+.loading {
+  padding-top: 18vw;
+  padding-right: 1vw;
+  position: absolute;
 }
