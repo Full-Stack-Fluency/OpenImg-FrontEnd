@@ -1,5 +1,3 @@
-
-
 body {
     margin: auto;
     display: flex;
@@ -74,7 +72,7 @@ body::after {
 
 }
 
-.glassPic{
+.glassPic {
     width: 140px;
     margin: 10px;
     border: 1px solid black;
@@ -166,21 +164,21 @@ body::after {
     border-radius: 70%;
 }
 
-.iconDiv{
+.iconDiv {
     display: flex;
     justify-content: space-around;
 }
 
-.socialIcon{
+.socialIcon {
     width: 75px;
     transition: 0.2s;
 }
 
-.socialIcon:hover{
+.socialIcon:hover {
     opacity: 0.5;
 }
 
-.socialIcon:active{
+.socialIcon:active {
     opacity: 1;
 }
 

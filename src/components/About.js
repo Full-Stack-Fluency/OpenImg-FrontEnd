@@ -7,18 +7,18 @@ class About extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: [ false, false, false, false]
+      isOpen: [false, false, false, false]
     }
   }
 
   openModal = (idx) => {
     let newArr = [false, false, false, false];
     newArr[idx] = true;
-    this.setState({ isOpen: newArr});
+    this.setState({ isOpen: newArr });
   }
 
   closeModal = () => {
-    this.setState({ isOpen: [false, false, false, false]});
+    this.setState({ isOpen: [false, false, false, false] });
   }
 
   render() {
@@ -74,12 +74,12 @@ class About extends Component {
 
     let allModals = personArray.map((item, idx) => {
       return (
-        <Modal 
+        <Modal
           dialogClassName="modal-90w public-profile-modal-class"
           size='lg'
           aria-labelledby="example-custom-modal-styling-title"
           className="modal"
-          show={this.state.isOpen[idx]} 
+          show={this.state.isOpen[idx]}
           onHide={() => this.closeModal()}
           key={idx}
         >
