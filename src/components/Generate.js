@@ -68,6 +68,7 @@ class Generate extends React.Component {
       popOverShow1: false,
       popOverShow2: false,
       popOverShow3: false,
+      promptFlagged: false
     });
     let generatedImg = await axios(config);
     if (generatedImg.data !== true) {
