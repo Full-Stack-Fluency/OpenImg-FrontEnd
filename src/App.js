@@ -17,7 +17,7 @@ class App extends React.Component {
       <>
       
           <Router>
-            <Hamburger />
+            <Hamburger/>
             <Routes>
               <Route
                 exact path="/"
