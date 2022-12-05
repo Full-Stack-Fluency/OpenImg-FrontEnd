@@ -114,7 +114,6 @@ class Generate extends React.Component {
         [emotionSentimentsArrs]: emotions.data[0].emotion.sentiments,
       })
     } else {
-      console.log('emotion return is blank');
       const poppersFail = `popOverShow${x}`
       this.setState({
         [poppersFail]: true
@@ -142,7 +141,8 @@ class Generate extends React.Component {
       }
       try {
         const savers = `saveSuccess${idx}`
-        const saved = await axios(config);
+
+
         this.setState({
           [savers]: true
         });
@@ -161,6 +161,7 @@ class Generate extends React.Component {
 
   render() {
 
+
     return (
       <>
         <div handleSubmitPrompt={this.handleSubmitPrompt}></div>
@@ -170,6 +171,7 @@ class Generate extends React.Component {
             {this.state.stopSpinner && <Spinner animation="grow" variant="dark"/>}
           </div>
         </div>
+
         <div className="glassContainer">
           {this.state.img1Url &&
             <>

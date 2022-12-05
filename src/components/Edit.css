@@ -18,10 +18,10 @@ h1 {
   box-shadow: grey 5px 5px 10px;
 }
 
-.picDiv{
-  /* border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0; */
-}
+/* .picDiv{
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+} */
 
 .cardPic{
   border-top-left-radius: 9px;

@@ -54,6 +54,7 @@ class InputForm extends React.Component {
                         </Popover.Body>
                     </Popover>
                 }
+                
                 </div>
             </Form>
         )
