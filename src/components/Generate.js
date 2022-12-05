@@ -32,16 +32,16 @@ class Generate extends React.Component {
       popOverShow4: false,
       prompt: '',
       stopSpinner: false,
-      emotionValue0:'',
-      emotionValue1:'',
-      emotionValue2:'',
-      emotionValue3:'',
-      emotionValue4:'',
-      emotionSentimentsArrs0:[],
-      emotionSentimentsArrs1:[],
-      emotionSentimentsArrs2:[],
-      emotionSentimentsArrs3:[],
-      emotionSentimentsArrs4:[],
+      emotionValue0: '',
+      emotionValue1: '',
+      emotionValue2: '',
+      emotionValue3: '',
+      emotionValue4: '',
+      emotionSentimentsArrs0: [],
+      emotionSentimentsArrs1: [],
+      emotionSentimentsArrs2: [],
+      emotionSentimentsArrs3: [],
+      emotionSentimentsArrs4: [],
       promptFlagged: false
     }
   }
@@ -60,7 +60,7 @@ class Generate extends React.Component {
     }
     this.setState({
       stopSpinner: true,
-      popOverShow:false,
+      popOverShow: false,
       displayPopover0: false,
       displayPopover1: false,
       displayPopover2: false,
@@ -74,21 +74,21 @@ class Generate extends React.Component {
     });
     let generatedImg = await axios(config);
     if (generatedImg.data !== true) {
-    this.setState({
-      generatedImgArr: generatedImg.data.data,
-      img1Url: generatedImg.data.data[0].url,
-      img2Url: generatedImg.data.data[1].url,
-      img3Url: generatedImg.data.data[2].url,
-      img4Url: generatedImg.data.data[3].url,
-      img5Url: generatedImg.data.data[4].url,
-      stopSpinner: false,
-    });
-  }else {
-    this.setState ({
-      promptFlagged: true,
-      stopSpinner: false
-    })
-  }
+      this.setState({
+        generatedImgArr: generatedImg.data.data,
+        img1Url: generatedImg.data.data[0].url,
+        img2Url: generatedImg.data.data[1].url,
+        img3Url: generatedImg.data.data[2].url,
+        img4Url: generatedImg.data.data[3].url,
+        img5Url: generatedImg.data.data[4].url,
+        stopSpinner: false,
+      });
+    } else {
+      this.setState({
+        promptFlagged: true,
+        stopSpinner: false
+      })
+    }
   }
   getEmotion = async (x) => {
     let reqbodyObj = { url: this.state.generatedImgArr[x].url }
@@ -107,7 +107,7 @@ class Generate extends React.Component {
     if (emotions.data.length !== 0) {
       console.log('emotion return isnt blank');
       this.setState({
-        [displayPoppers] : true,
+        [displayPoppers]: true,
         [poppers]: x,
         [emotionValues]: emotions.data[0].emotion.value,
         [emotionSentimentsArrs]: emotions.data[0].emotion.sentiments,
@@ -200,10 +200,10 @@ class Generate extends React.Component {
 
     return (
       <>
-      <div handleSubmitPrompt={this.handleSubmitPrompt}></div>
+        <div handleSubmitPrompt={this.handleSubmitPrompt}></div>
         <div className="container">
           <div className="drop">
-            <InputForm className="inputBox" handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} promptFlagged = {this.state.promptFlagged} />
+            <InputForm className="inputBox" handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} promptFlagged={this.state.promptFlagged} />
             {this.state.stopSpinner && <Spinner animation="border" />}
           </div>
         </div>
@@ -253,7 +253,7 @@ class Generate extends React.Component {
                 <div className="popoverShowed">
                   <Popover id="emotion value">
                     <Popover.Header as="h3">
-                     {this.state.emotionValue0}
+                      {this.state.emotionValue0}
                     </Popover.Header>
                     <Popover.Body>
                       Anger :{this.state.emotionSentimentsArrs0.angry.toFixed(4)}

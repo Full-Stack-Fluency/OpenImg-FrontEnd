@@ -1,9 +1,10 @@
- body {
+body {
   border-radius: 2rem;
   text-align: center;
- }
- .logButton {
- padding-right: 38vw;
+}
+
+.logButton {
+  padding-right: 38vw;
 
 }
 
@@ -13,10 +14,12 @@
   background: none;
   color: black;
 }
+
 .navbar-nav {
   font-size: larger;
 }
- .menu {
+
+.menu {
   padding-left: 50vw;
   padding-right: 4vw;
   padding-top: 1vw;
@@ -24,4 +27,4 @@
   background: none;
   width: 112rem;
   border-radius: 10px;
-} 
+}
