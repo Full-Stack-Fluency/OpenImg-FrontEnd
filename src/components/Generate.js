@@ -87,9 +87,9 @@ class Generate extends React.Component {
       <div className="container">
         <div className="drop">
         <InputForm className="inputBox" handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} />
-        {this.state.first ? <div></div> : generatedItems}
         </div>
       </div>
+      <div className="imgCard">{this.state.first ? <div></div> : generatedItems}</div>
       </>
     )
   }
