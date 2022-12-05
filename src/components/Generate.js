@@ -3,7 +3,7 @@ import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import InputForm from './InputForm.js';
 import Tilt from 'react-parallax-tilt';
-import { Button, Spinner, Card, Popover } from 'react-bootstrap';
+import { Spinner, Card, Popover } from 'react-bootstrap';
 import './Generate.css';
 
 class Generate extends React.Component {
@@ -168,7 +168,7 @@ class Generate extends React.Component {
         <div className="container">
           <div className="drop">
             <InputForm className="inputBox" handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} promptFlagged={this.state.promptFlagged} />
-            {this.state.stopSpinner && <Spinner animation="grow" variant="dark"/>}
+            <div className="loading">{this.state.stopSpinner && <Spinner animation="grow" variant="dark"/>}</div>
           </div>
         </div>
 
