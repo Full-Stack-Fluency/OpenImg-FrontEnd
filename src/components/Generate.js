@@ -204,7 +204,7 @@ class Generate extends React.Component {
         <div className="container">
           <div className="drop">
             <InputForm className="inputBox" handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} promptFlagged={this.state.promptFlagged} />
-            {this.state.stopSpinner && <Spinner animation="border" />}
+            {this.state.stopSpinner && <Spinner animation="grow" variant="dark"/>}
           </div>
         </div>
         {/* <Tabs

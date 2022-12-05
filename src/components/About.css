@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+*{
+    font-family: 'Ubuntu', sans-serif;
+}
+
 body {
     margin: auto;
     display: flex;
@@ -39,11 +45,10 @@ body::after {
     padding-top: 5%;
     padding-left: 10%;
     position: relative;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
     max-width: 1200px;
-    flex-wrap: wrap;
     z-index: 1;
 
 }
@@ -70,26 +75,15 @@ body::after {
 .glassContainer .glassCard .glassContent {
     padding: 20px;
     text-align: center;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: 0.5s;
+
 }
 
-.glassContainer .glassCard:hover .glassContent {
-    transform: translateY(0px);
-    opacity: 1;
-}
-
-.glassContainer .glassCard .glassContent h2 {
-    position: absolute;
-    top: -60px;
-    right: 45px;
-    text-align: right;
-    font-weight: bolder;
-    left: 30px;
-    font-size: 3rem;
-    color: rgba(255, 255, 255, 0.427);
-    pointer-events: none;
+.glassPic{
+    width: 140px;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+    box-shadow: rgb(78, 78, 78) 5px 5px 15px;
 }
 
 .glassContainer .glassCard .glassContent h3 {
@@ -97,26 +91,39 @@ body::after {
     color: rgb(0, 0, 0);
     font-weight: bolder;
     z-index: 1;
+    margin: 0;
 }
 
 .glassContainer .glassBio {
     font-size: 1.2rem;
     color: #fff;
     font-weight: 300;
+    margin: 0;
 }
 
 .glassContainer .glassCard .glassContent button {
     position: relative;
     display: inline-block;
     padding: 8px 20px;
-    margin-top: 15px;
+    margin-top: 5px;
     background-attachment: #fff;
-    background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+    background-color: black;
     color: rgb(255, 243, 243);
     font-weight: 500;
     border-radius: 20px;
     text-decoration: none;
     box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+}
+
+.glassContainer .glassCard .glassContent button:hover {
+    background-color: rgb(255, 243, 243);
+    color: black;
+}
+
+.glassContainer .glassCard .glassContent button:active {
+    background-color: black;
+    color: rgb(255, 243, 243);
 }
 
 .Tilt {
@@ -124,30 +131,26 @@ body::after {
 }
 
 .modal {
-    margin: auto;
-    display: flex;
-    justify-content: center;
     align-content: center;
     text-align: center;
     right: 2rem;
-    padding-top: 20px;
+    padding-top: 10px;
+    backdrop-filter: blur(20px);
 }
 
 .modal .modal-content {
     background: none;
+    margin: 0 auto;
     width: 1000px;
     height: 600px;
     box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.1);
     overflow: hidden;
-    display: flex;
-    justify-content: center;
     padding: 50px;
     align-items: left;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-left: 1px solid rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
     color: aliceblue;
     font-size: 20px;
 }
@@ -156,17 +159,33 @@ body::after {
     text-align: left;
     color: aliceblue;
     font-size: 4rem;
-    display: flex;
-    justify-content: center;
 }
 
-.modal img {
+.bioPic {
     display: flex;
     justify-content: center;
     height: 200px;
     margin: auto;
     right: 3rem;
     border-radius: 70%;
+}
+
+.iconDiv{
+    display: flex;
+    justify-content: space-around;
+}
+
+.socialIcon{
+    width: 75px;
+    transition: 0.2s;
+}
+
+.socialIcon:hover{
+    opacity: 0.5;
+}
+
+.socialIcon:active{
+    opacity: 1;
 }
 
 .modalButton {
