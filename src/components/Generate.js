@@ -183,11 +183,11 @@ class Generate extends React.Component {
                     {this.state.emotionSpinner0 && <Spinner animation="grow" variant="dark" />}
                     {this.state.displayPopover0 &&
                       <div className="popoverShowed">
-                        <Popover id="emotion value">
-                          <Popover.Header as="h3">
+                        <Popover id="emotionValue">
+                          <Popover.Header id = "popover3Header" as="h2">
                             {this.state.emotionValue0}
                           </Popover.Header>
-                          <Popover.Body>
+                          {/* <Popover.Body>
                             Anger :{this.state.emotionSentimentsArrs0.angry.toFixed(4)}
                             <br></br>
                             Disgust: {this.state.emotionSentimentsArrs0.disgust.toFixed(4)}
@@ -201,14 +201,14 @@ class Generate extends React.Component {
                             Sad: {this.state.emotionSentimentsArrs0.sad.toFixed(4)}
                             <br></br>
                             Surprise: {this.state.emotionSentimentsArrs0.surprise.toFixed(4)}
-                          </Popover.Body>
+                          </Popover.Body> */}
                         </Popover>
                       </div>
                     }
                     {this.state.popOverShow0 &&
                       <div className="popoverFailed">
                         <Popover id="failed">
-                          <Popover.Header as="h3">
+                          <Popover.Header id = "popover3Header" as="h2">
                             Unable to read emotion
                           </Popover.Header>
                         </Popover>
@@ -225,12 +225,12 @@ class Generate extends React.Component {
                     {this.state.img1Url && <button className="button2" onClick={() => this.getEmotion(1)}>Get Emotion</button>}
                     {this.state.emotionSpinner1 && <Spinner animation="grow" variant="dark" />}
                     {this.state.displayPopover1 &&
-                      <Popover id="emotion value">
-                        <Popover.Header as="h3">
+                      <Popover id="emotionValue">
+                        <Popover.Header id = "popover3Header" as="h2">
                           {this.state.emotionValue1}
                           {/* {this.state.emotionSentimentsArr} */}
                         </Popover.Header>
-                        <Popover.Body>
+                        {/* <Popover.Body>
                           Anger :{this.state.emotionSentimentsArrs1.angry.toFixed(4)}
                           <br></br>
                           Disgust: {this.state.emotionSentimentsArrs1.disgust.toFixed(4)}
@@ -244,12 +244,12 @@ class Generate extends React.Component {
                           Sad: {this.state.emotionSentimentsArrs1.sad.toFixed(4)}
                           <br></br>
                           Surprise: {this.state.emotionSentimentsArrs1.surprise.toFixed(4)}
-                        </Popover.Body>
+                        </Popover.Body> */}
                       </Popover>
                     }
                     {this.state.popOverShow1 &&
                       <Popover id="failed">
-                        <Popover.Header as="h3">
+                        <Popover.Header id = "popover3Header" as="h2">
                           Unable to read emotion
                         </Popover.Header>
                       </Popover>}
@@ -264,12 +264,12 @@ class Generate extends React.Component {
                     {this.state.img1Url && <button className="button3" onClick={() => this.getEmotion(2)}>Get Emotion</button>}
                     {this.state.emotionSpinner2 && <Spinner animation="grow" variant="dark" />}
                     {this.state.displayPopover2 &&
-                      <Popover id="emotion value">
-                        <Popover.Header as="h3">
+                      <Popover id="emotionValue">
+                        <Popover.Header id = "popover3Header" as="h2">
                           {this.state.emotionValue2}
                           {/* {this.state.emotionSentimentsArr} */}
                         </Popover.Header>
-                        <Popover.Body>
+                        {/* <Popover.Body>
                           Anger :{this.state.emotionSentimentsArrs2.angry.toFixed(4)}
                           <br></br>
                           Disgust: {this.state.emotionSentimentsArrs2.disgust.toFixed(4)}
@@ -283,12 +283,12 @@ class Generate extends React.Component {
                           Sad: {this.state.emotionSentimentsArrs2.sad.toFixed(4)}
                           <br></br>
                           Surprise: {this.state.emotionSentimentsArrs2.surprise.toFixed(4)}
-                        </Popover.Body>
+                        </Popover.Body> */}
                       </Popover>
                     }
                     {this.state.popOverShow2 &&
                       <Popover id="failed">
-                        <Popover.Header as="h3">
+                        <Popover.Header id = "popover3Header" as="h2">
                           Unable to read emotion
                         </Popover.Header>
                       </Popover>}
@@ -303,12 +303,12 @@ class Generate extends React.Component {
                     {this.state.img1Url && <button className="button4" onClick={() => this.getEmotion(3)}>Get Emotion</button>}
                     {this.state.emotionSpinner3 && <Spinner animation="grow" variant="dark" />}
                     {this.state.displayPopover3 &&
-                      <Popover id="emotion value">
-                        <Popover.Header as="h3">
+                      <Popover id="emotionValue">
+                        <Popover.Header id = "popover3Header" as="h2">
                           {this.state.emotionValue3}
                           {/* {this.state.emotionSentimentsArr} */}
                         </Popover.Header>
-                        <Popover.Body>
+                        {/* <Popover.Body>
                           Anger :{this.state.emotionSentimentsArrs3.angry.toFixed(4)}
                           <br></br>
                           Disgust: {this.state.emotionSentimentsArrs3.disgust.toFixed(4)}
@@ -322,12 +322,12 @@ class Generate extends React.Component {
                           Sad: {this.state.emotionSentimentsArrs3.sad.toFixed(4)}
                           <br></br>
                           Surprise: {this.state.emotionSentimentsArrs3.surprise.toFixed(4)}
-                        </Popover.Body>
+                        </Popover.Body> */}
                       </Popover>
                     }
                     {this.state.popOverShow3 &&
                       <Popover id="failed">
-                        <Popover.Header as="h3">
+                        <Popover.Header id = "popover3Header"as="h2">
                           Unable to read emotion
                         </Popover.Header>
                       </Popover>}
