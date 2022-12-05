@@ -57,7 +57,6 @@ class Edit extends Component {
 
   handleEditItem = async (e, obj) => {
     e.preventDefault();
-    console.log(obj);
     this.setState({
       loading: obj,
     });
