@@ -59,7 +59,6 @@ class Generate extends React.Component {
       data: reqbodyObj
     }
     this.setState({
-      stopConfetti:true,
       stopSpinner: true,
       popOverShow:false,
       displayPopover0: false,
@@ -73,7 +72,6 @@ class Generate extends React.Component {
       popOverShow3: false,
       popOverShow4: false
     });
-    // console.log(config);
     let generatedImg = await axios(config);
     if (generatedImg.data !== true) {
     this.setState({
@@ -84,7 +82,6 @@ class Generate extends React.Component {
       img4Url: generatedImg.data.data[3].url,
       img5Url: generatedImg.data.data[4].url,
       stopSpinner: false,
-      stopConfetti: true
     });
   }else {
     this.setState ({
