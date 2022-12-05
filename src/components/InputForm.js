@@ -27,6 +27,12 @@ class InputForm extends React.Component {
         return (
 
             <Form onSubmit={this.handleRequireInputToGenerate}>
+                <Form.Group controlId='prompt'>
+                    <Form.Label className="OpenImg-Prompt">OpenImg</Form.Label>
+                    <Form.Control type="text" placeholder="Type to generate image" onChange={this.props.handleFormChange} />
+                </Form.Group>
+                <div className="buttonGen">
+                <Button variant="success" className="imgGenerator" type="submit">A.I. Image Generation</Button>
                 {this.state.popoverDisplay && 
                     <Popover id = "error message for form not submit correctly">
                         <Popover.Header as="h3">
@@ -37,12 +43,6 @@ class InputForm extends React.Component {
                         </Popover.Body>
                     </Popover>
                 }
-                <Form.Group controlId='prompt'>
-                    <Form.Label className="OpenImg-Prompt">OpenImg</Form.Label>
-                    <Form.Control type="text" placeholder="Type to generate image" onChange={this.props.handleFormChange} />
-                </Form.Group>
-                <div className="buttonGen">
-                <Button variant="success" className="imgGenerator" type="submit">A.I. Image Generation</Button>
                 </div>
             </Form>
         )
