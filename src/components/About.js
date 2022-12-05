@@ -17,6 +17,8 @@ class About extends Component {
        }
      }
 
+     
+
      openModal = () => this.setState({ isOpen: true });
      closeModal = () => this.setState({ isOpen: false });
 
@@ -120,7 +122,7 @@ class About extends Component {
       <Modal dialogClassName="modal-90w public-profile-modal-class" size='lg' aria-labelledby="example-custom-modal-styling-title" className= "modal" 
       show={this.state.isOpen} onHide={this.closeModal}>
       <Modal.Header closeButton>
-      <img src="https://i.imgur.com/tpxB7Vo.png" alt="" />
+      <img src="/images/keyanIMG.png" alt="" />
         <Modal.Title className="modalTitle">Keyan Tabor</Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -133,7 +135,7 @@ class About extends Component {
     <Modal dialogClassName="modal-90w public-profile-modal-class" size='lg' aria-labelledby="example-custom-modal-styling-title" className= "modal"
      show={this.state.isOpen2} onHide={this.closeModal2}>
       <Modal.Header closeButton>
-      <img src="https://avatars.githubusercontent.com/u/107225817?s=400&u=e5bf8fd83578ecaaa45d1820a9101f13ef7646d0&v=4" alt="" />
+      <img src="/images/deshonIMG.jpeg" alt="" />
         <Modal.Title>DeShon Dixon</Modal.Title>
         
       </Modal.Header>
@@ -147,7 +149,7 @@ class About extends Component {
     <Modal dialogClassName="modal-90w public-profile-modal-class" size='lg' aria-labelledby="example-custom-modal-styling-title" className= "modal"
     show={this.state.isOpen3} onHide={this.closeModal3}>
       <Modal.Header closeButton>
-      <img src="https://github.com/jason-christopher/reading-notes/blob/main/Profile%20Pic.jpeg?raw=true" alt="" />
+      <img src="/images/jasonIMG.jpeg" alt="" />
         <Modal.Title>Jason Christopher</Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -160,7 +162,7 @@ class About extends Component {
     <Modal dialogClassName="modal-90w public-profile-modal-class" size='lg' aria-labelledby="example-custom-modal-styling-title" className= "modal"
       show={this.state.isOpen4} onHide={this.closeModal4}>
       <Modal.Header closeButton>
-      <img src="https://i.imgur.com/2WJ1vWM.png" alt="" /> 
+      <img src="/images/oliverIMG.png" alt="" /> 
         <Modal.Title>Oliver Speir</Modal.Title>
       </Modal.Header>
       <Modal.Body>
