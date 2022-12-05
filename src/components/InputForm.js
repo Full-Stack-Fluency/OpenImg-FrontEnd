@@ -35,14 +35,17 @@ class InputForm extends React.Component {
                 <div className="buttonGen">
                 <button className="imgGenerator" type="submit">Image Generation</button>
                 {this.state.popoverDisplay && 
+                <div className="mainPrompt">
                     <Popover id = "error message for form not submit correctly">
-                        <Popover.Header as="h3">
+                        <Popover.Header className="modalTitle"as="h3">
                             Prompt Required
                         </Popover.Header>
+                        
                         <Popover.Body>
                             Fill in form before you click Image Generation
                         </Popover.Body>
                     </Popover>
+                      </div>
                 }
                 {this.props.promptFlagged && 
                     <Popover id = "flaggedPopover">

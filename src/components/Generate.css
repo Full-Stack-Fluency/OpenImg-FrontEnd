@@ -109,6 +109,21 @@ body::after {
 
 .loading {
   padding-top: 18vw;
-  padding-right: 1vw;
+  padding-right: -1vw;
   position: absolute;
+}
+
+.glassContainer .glassCard .cardBody button {
+  position: relative;
+  display: inline-block;
+  padding: 8px 20px;
+  margin-top: 5px;
+  background-attachment: #fff;
+  background-color: black;
+  color: rgb(255, 243, 243);
+  font-weight: 500;
+  border-radius: 20px;
+  text-decoration: none;
+  box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.5);
+  transition: 0.2s;
 }
