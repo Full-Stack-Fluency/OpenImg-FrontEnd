@@ -1,42 +1,72 @@
-.gridBox{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+body {
+  margin: auto;
 }
 
-.cards{
+h1 {
+  text-align: center;
+  padding-top: 5%;
+}
+
+.gridBox {
+  padding-top: 5%;
+  padding-left: 10%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  max-width: 1200px;
+  z-index: 1;
+}
+
+.cards {
   margin: 30px 10px;
   border: 1px solid grey;
   border-radius: 10px;
   box-shadow: grey 5px 5px 10px;
 }
 
-.picDiv{
-  /* border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0; */
-}
+/* .picDiv{
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+} */
 
-.cardPic{
+.cardPic {
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.cardBody{
+.cardBody {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
-.cardTitle{
+.cardTitle {
   text-align: center;
   color: rgb(72, 72, 72);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
 }
 
-.buttonDiv{
+.buttonDiv {
   height: 50px;
   display: flex;
   justify-content: space-around;
+}
+
+.glassContainer .glassCard .cardBody button {
+  position: relative;
+  display: inline-block;
+  padding: 8px 20px;
+  margin-top: 5px;
+  background-attachment: #fff;
+  background-color: black;
+  color: rgb(255, 243, 243);
+  font-weight: 500;
+  border-radius: 20px;
+  text-decoration: none;
+  box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.5);
+  transition: 0.2s;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button, Popover } from 'react-bootstrap';
+import { Form, Popover } from 'react-bootstrap';
 import './InputForm.css';
 
 class InputForm extends React.Component {
@@ -27,22 +27,41 @@ class InputForm extends React.Component {
         return (
 
             <Form onSubmit={this.handleRequireInputToGenerate}>
+                <Form.Group controlId='prompt'>
+                    <Form.Label className="OpenImg-Prompt">
+                      <img className="logo" src="/images/openImg.png" alt="" /></Form.Label>
+                    <Form.Control className="theBox" type="text" placeholder="Type to generate image" onChange={this.props.handleFormChange} />
+                </Form.Group>
+                <div className="buttonGen">
+                <button className="imgGenerator" type="submit">Image Generation</button>
                 {this.state.popoverDisplay && 
-                    <Popover id = "error message for form not submit correctly">
-                        <Popover.Header as="h3">
+                    <div className = "requiredPopover">
+                    <Popover id = "requiredPopover">
+                        <Popover.Header id="requiredPopoverHeader" as="h2">
+
                             Prompt Required
                         </Popover.Header>
+                        
                         <Popover.Body>
                             Fill in form before you click Image Generation
                         </Popover.Body>
                     </Popover>
+                    </div>
+
                 }
-                <Form.Group controlId='prompt'>
-                    <Form.Label className="OpenImg-Prompt">OpenImg</Form.Label>
-                    <Form.Control type="text" placeholder="Type to generate image" onChange={this.props.handleFormChange} />
-                </Form.Group>
-                <div className="buttonGen">
-                <Button variant="success" className="imgGenerator" type="submit">A.I. Image Generation</Button>
+                {this.props.promptFlagged &&
+                    <div className = "flaggedPopover">
+                    <Popover id = "flaggedPopover">
+                        <Popover.Header id = "flaggedPopoverHeader" as="h2">
+                            Prompt Flagged
+                        </Popover.Header>
+                        <Popover.Body>
+                            Requests need to be school friendly
+                        </Popover.Body>
+                    </Popover>
+                    </div>
+                }
+                
                 </div>
             </Form>
         )

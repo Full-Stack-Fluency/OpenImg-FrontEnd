@@ -1,15 +1,32 @@
-.logButton {
- padding-right: 3vw;
-
+body {
+  border-radius: 2vw;
+  text-align: center;
 }
 
+.logButton {
+  left: 8vw;
+  position: absolute;
+  width: 106vw;
+}
+
+
 .navbar-toggler-icon {
-  padding-left: 3vw;
-  font-size: 2vw;
+  padding-left: 2vw;
+  font-size: 3vw;
+  background: none;
+  color: black;
+}
+
+.navbar-nav {
+  font-size: larger;
 }
 
 .menu {
-  padding-left: 3vw;
+  padding-left: 48vw;
+  padding-right: 4vw;
   padding-top: 1vw;
   font-weight: bolder;
+  background: none;
+  width: 106vw;
+  border-radius: 10px;
 }
