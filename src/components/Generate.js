@@ -87,7 +87,7 @@ class Generate extends React.Component {
       })
     }
   }
-  
+
   getEmotion = async (x) => {
     let reqbodyObj = { url: this.state.generatedImgArr[x].url }
     const config = {
@@ -143,12 +143,10 @@ class Generate extends React.Component {
       }
       try {
         const savers = `saveSuccess${idx}`
-        const saved = await axios(config);
-        if (saved.data.status === 'OK') {
-          this.setState({
-            [savers]: true
-          });
-        }
+        await axios(config);
+        this.setState({
+          [savers]: true
+        });
       } catch (err) {
       }
     }
@@ -179,7 +177,7 @@ class Generate extends React.Component {
               <Tilt>
                 <Card className="glassCard">
                   <Card.Img variant="top" src={this.state.img1Url} key={0} alt="Generated with Dall-E 2" />
-                  <Card.Body>
+                  <Card.Body className="cardBody">
                     {this.props.auth0.isAuthenticated && this.state.img1Url && <button variant="primary" onClick={() => this.savePrompt(0)} >{this.state.saveSuccess0 ? <>Saved </> : <>Save to Collection</>}</button>}
                     {this.state.img1Url && <button className="button1" onClick={() => this.getEmotion(0)}>Get Emotion</button>}
                     {this.state.emotionSpinner0 && <Spinner animation="grow" variant="dark" />}
@@ -222,7 +220,7 @@ class Generate extends React.Component {
               <Tilt>
                 <Card className="glassCard">
                   <Card.Img variant="top" src={this.state.img2Url} key={1} alt="Generated with Dall-E 2" />
-                  <Card.Body>
+                  <Card.Body className="cardBody">
                     {this.props.auth0.isAuthenticated && this.state.img1Url && <button variant="primary" onClick={() => this.savePrompt(1)} > {this.state.saveSuccess1 ? <>Saved </> : <>Save to Collection</>} </button>}
                     {this.state.img1Url && <button className="button2" onClick={() => this.getEmotion(1)}>Get Emotion</button>}
                     {this.state.emotionSpinner1 && <Spinner animation="grow" variant="dark" />}
@@ -261,7 +259,7 @@ class Generate extends React.Component {
               <Tilt>
                 <Card className="glassCard">
                   <Card.Img variant="top" src={this.state.img3Url} key={2} alt="Generated with Dall-E 2" />
-                  <Card.Body>
+                  <Card.Body className="cardBody">
                     {this.props.auth0.isAuthenticated && this.state.img1Url && <button variant="primary" onClick={() => this.savePrompt(2)} >{this.state.saveSuccess2 ? <>Saved </> : <>Save to Collection</>}</button>}
                     {this.state.img1Url && <button className="button3" onClick={() => this.getEmotion(2)}>Get Emotion</button>}
                     {this.state.emotionSpinner2 && <Spinner animation="grow" variant="dark" />}
@@ -300,7 +298,7 @@ class Generate extends React.Component {
               <Tilt>
                 <Card className="glassCard">
                   <Card.Img variant="top" src={this.state.img4Url} key={3} alt="Generated with Dall-E 2" />
-                  <Card.Body>
+                  <Card.Body className="cardBody">
                     {this.props.auth0.isAuthenticated && this.state.img1Url && <button variant="primary" onClick={() => this.savePrompt(3)} >{this.state.saveSuccess3 ? <>Saved </> : <>Save to Collection</>}</button>}
                     {this.state.img1Url && <button className="button4" onClick={() => this.getEmotion(3)}>Get Emotion</button>}
                     {this.state.emotionSpinner3 && <Spinner animation="grow" variant="dark" />}

@@ -1,6 +1,7 @@
 import { Component } from 'react';
-import { Card, Button, Spinner } from 'react-bootstrap';
+import { Card, Spinner } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
+import Tilt from 'react-parallax-tilt';
 import axios from 'axios';
 import FormModal from './FormModal';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -110,22 +111,25 @@ class Edit extends Component {
     let cardItems = this.state.results.map((item, idx) => {
       return (
         <>
-          <Card className="cards" key={idx}>
-            <div className="picDiv">
+        <div className="glassContainer">
+          <Tilt>
+          <Card className="glassCard" key={idx}>
               {this.state.loading._id === item._id ? <Spinner animation="border" /> : <Card.Img src={item.imgSrc} className="cardPic" alt="Generated with Dall-E 2" />}
-            </div>
+
             <Card.Body className="cardBody">
               <Card.Title className="cardTitle">{this.state.loading._id === item._id ? <Spinner animation="border" /> : item.prompt}</Card.Title>
               <div className="buttonDiv">
-                <Button
+                <button
                   onClick={() => this.handleOpenModal(item)}
-                >Edit Item</Button>
-                <Button
+                >Edit Item</button>
+                <button
                   onClick={() => this.handleDeleteItem(item._id)}
-                >Delete Item</Button>
+                >Delete Item</button>
               </div>
             </Card.Body>
           </Card>
+          </Tilt>
+          </div>
         </>
       )
     })

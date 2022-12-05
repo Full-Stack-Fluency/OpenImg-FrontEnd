@@ -38,13 +38,16 @@ class InputForm extends React.Component {
                     <div className = "requiredPopover">
                     <Popover id = "requiredPopover">
                         <Popover.Header id="requiredPopoverHeader" as="h2">
+
                             Prompt Required
                         </Popover.Header>
+                        
                         <Popover.Body>
                             Fill in form before you click Image Generation
                         </Popover.Body>
                     </Popover>
                     </div>
+
                 }
                 {this.props.promptFlagged &&
                     <div className = "flaggedPopover">

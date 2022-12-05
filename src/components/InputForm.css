@@ -7,20 +7,21 @@
 }
 
 .buttonGen {
-  padding: 2vw;
-  text-align: center;
-  display: flex;
-  border-radius: 70%;
+  padding-top: 2vw;
 }
-
 .imgGenerator {
-  width: 220px;
-  height: 50px;
-  color: rgb(255, 255, 255);
-  border: none;
-  background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
-  border-radius: 30px;
-  font-weight: bolder;
+  position: relative;
+  display: inline-block;
+  padding: 8px 20px;
+  margin-top: 5px;
+  background-attachment: #fff;
+  background-color: black;
+  color: rgb(255, 243, 243);
+  font-weight: 500;
+  border-radius: 20px;
+  text-decoration: none;
+  box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.5);
+  transition: 0.2s;
 }
 
 
@@ -84,3 +85,4 @@
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
 }
+
