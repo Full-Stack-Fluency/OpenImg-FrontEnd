@@ -90,6 +90,21 @@
 
 .alert{
   margin: 10px;
+  opacity: 100%;
+  text-align: center;
+  height: 7vw;
+  width: 20vw;
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.badWord {
+  background: none;
+  color: black;
+  background: blue;
   backdrop-filter: blur(5px);
+}
+
+.bad {
+  font-weight: 200;
+  font-size: 1vw;
 }

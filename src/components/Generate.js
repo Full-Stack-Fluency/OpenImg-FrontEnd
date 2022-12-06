@@ -3,7 +3,7 @@ import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import InputForm from './InputForm.js';
 import Tilt from 'react-parallax-tilt';
-import { Spinner, Card, Popover, Alert, Button } from 'react-bootstrap';
+import { Spinner, Card, Popover } from 'react-bootstrap';
 import './Generate.css';
 
 class Generate extends React.Component {
