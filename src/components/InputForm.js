@@ -40,22 +40,19 @@ class InputForm extends React.Component {
             Please enter a prompt
           </p>
           <hr />
-          <div className="d-flex justify-content-end">
+          <div className="glass">
             <Button onClick={() => this.setState({ empty: false })} variant="outline-success">
               Close
             </Button>
           </div>
         </Alert>
-        <Alert className="alert" show={this.props.badWords} >
-          <p>
+        <Alert variant="danger" show={this.props.badWords} >
+          <p className='bad'>
             No bad words!
-          </p>
-          <hr />
-          <div className="d-flex justify-content-end">
-            <Button onClick={() => this.props.closeAlert()} variant="outline-success">
+          </p>   
+            <Button onClick={() => this.props.closeAlert()} variant="danger">
               Close
             </Button>
-          </div>
         </Alert>
       </div>
     )
