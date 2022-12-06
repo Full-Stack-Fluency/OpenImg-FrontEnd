@@ -111,24 +111,23 @@ class Edit extends Component {
     let cardItems = this.state.results.map((item, idx) => {
       return (
         <>
-        <div className="glassContainer">
-          <Tilt>
-          <Card className="glassCard" key={idx}>
-              {this.state.loading._id === item._id ? <Spinner animation="border" /> : <Card.Img src={item.imgSrc} className="cardPic" alt="Generated with Dall-E 2" />}
-
-            <Card.Body className="cardBody">
-              <Card.Title className="cardTitle">{this.state.loading._id === item._id ? <Spinner animation="border" /> : item.prompt}</Card.Title>
-              <div className="buttonDiv">
-                <button
-                  onClick={() => this.handleOpenModal(item)}
-                >Edit Item</button>
-                <button
-                  onClick={() => this.handleDeleteItem(item._id)}
-                >Delete Item</button>
-              </div>
-            </Card.Body>
-          </Card>
-          </Tilt>
+          <div className="glassContainer">
+            <Tilt>
+              <Card className="glassCard2" key={idx}>
+                {this.state.loading._id === item._id ? <Spinner animation="border" /> : <Card.Img src={item.imgSrc} className="cardPic" alt="Generated with Dall-E 2" />}
+                <Card.Body className="cardBody">
+                  <Card.Title className="cardTitle">{this.state.loading._id === item._id ? <Spinner animation="border" /> : item.prompt}</Card.Title>
+                  <div className="buttonDiv">
+                    <button
+                      onClick={() => this.handleOpenModal(item)}
+                    >Edit Item</button>
+                    <button
+                      onClick={() => this.handleDeleteItem(item._id)}
+                    >Delete Item</button>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Tilt>
           </div>
         </>
       )
