@@ -21,8 +21,12 @@ DeShon Dixon -- Jason Christopher -- Keyan Tabor -- Oliver Speir
 - V.003 Emotion API interface added
 - V.004 
 ### Instructions for local deployment and packages needed
-- `git clone https://github.com/OliverSpeir/TeamAwesome-301Project.git`
+- `git clone https://github.com/Full-Stack-Fluency/OpenImg-FrontEnd`
 - cd into the directory
 - type `npm i` into terminal while inside the directory
+- type `npm start`
+- `git clone https://github.com/Full-Stack-Fluency/OpenImg-BackEnd`
+- cd into directory
+- type `npm i` into terminal while inside the directory
+- type `nodemon` or `npm start`
 - remove .sample from end of .env.sample file and set server variable to http://localhost:xxxx
-
