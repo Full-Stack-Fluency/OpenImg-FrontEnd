@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Modal, Form, Popover } from 'react-bootstrap';
+import { Modal, Form, Popover } from 'react-bootstrap';
+import './FormModal.css';
 
 class FormModal extends React.Component {
   constructor(props) {
@@ -31,8 +32,9 @@ class FormModal extends React.Component {
         <Modal
           show={this.props.isModalShown}
           onHide={this.props.handleCloseModal}
+          className="formModal"
         >
-          <Form onSubmit={this.handleRequireInputToGenerate}>
+          <Form className="modalForm" onSubmit={this.handleRequireInputToGenerate}>
             {this.state.popoverDisplay &&
               <Popover id="error message for form not submit correctly">
                 <Popover.Header as="h3">
@@ -44,12 +46,12 @@ class FormModal extends React.Component {
               </Popover>
             }
             <Form.Group controlId='prompt'>
-              <Form.Label>Prompt</Form.Label>
+              <Form.Label>Input new prompt</Form.Label>
               <Form.Control type="text" placeholder={this.props.itemToChange.prompt} />
             </Form.Group>
-            <Button type="submit">Submit Changes</Button>
+            <button className="modalButton" type="submit">Submit Changes</button>
+            <button className="modalButton" onClick={this.props.handleCloseModal}>Cancel</button>
           </Form>
-          <Button onClick={this.props.handleCloseModal}>Cancel</Button>
         </Modal>
       </>
     )
