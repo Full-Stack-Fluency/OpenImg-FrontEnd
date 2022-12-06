@@ -17,6 +17,9 @@ class InputForm extends React.Component {
         empty: true
       })
     } else {
+      this.setState({
+        empty: false
+      })
       this.props.handleSubmitPrompt(e);
     }
   }
@@ -35,24 +38,18 @@ class InputForm extends React.Component {
             <button className="imgGenerator" type="submit">Image Generation</button>
           </div>
         </Form>
-        <Alert className="alert" show={this.state.empty} >
+        <Alert className="alert" variant="danger" show={this.state.empty} >
           <p>
-            Please enter a prompt
+            A prompt is required.
           </p>
-          <hr />
-          <div className="glass">
-            <Button onClick={() => this.setState({ empty: false })} variant="outline-success">
-              Close
-            </Button>
-          </div>
         </Alert>
         <Alert variant="danger" show={this.props.badWords} >
           <p className='bad'>
             No bad words!
-          </p>   
-            <Button onClick={() => this.props.closeAlert()} variant="danger">
-              Close
-            </Button>
+          </p>
+          <Button onClick={() => this.props.closeAlert()} variant="danger">
+            Close
+          </Button>
         </Alert>
       </div>
     )
