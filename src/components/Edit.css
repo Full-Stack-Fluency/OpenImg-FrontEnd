@@ -22,7 +22,6 @@ h1 {
   margin: auto;
   position: relative;
   width: 280px;
-  min-height: 60vh;
   margin: 30px;
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
@@ -65,6 +64,7 @@ h1 {
 
 .glassContainer .glassCard2 .cardBody button {
   position: relative;
+  height: auto;
   display: inline-block;
   padding: 8px 20px;
   margin-top: 5px;

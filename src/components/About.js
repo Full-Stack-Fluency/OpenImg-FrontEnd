@@ -59,7 +59,11 @@ class About extends Component {
 
     let allCards = personArray.map((item, idx) => {
       return (
-        <Tilt key={idx}>
+        <Tilt 
+        key={idx}
+        tiltMaxAngleX={10}
+            tiltMaxAngleY={10}
+            perspective={800}>
           <div className="glassCard">
             <div className="glassContent">
               <img className="glassPic" src={item.imgSrc} alt={item.name} />
