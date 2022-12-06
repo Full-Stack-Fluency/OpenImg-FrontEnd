@@ -1,0 +1,12 @@
+h3 {
+  font-size: 1vw;
+  font-weight:700;
+  color: rgb(252, 252, 252);
+  transition: .3s;
+}
+
+h3:hover {
+  font-size: 2vw;
+  font-weight:700;
+  color: rgb(255, 255, 255);
+}
