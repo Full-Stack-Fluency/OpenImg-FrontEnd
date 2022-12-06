@@ -1,8 +1,6 @@
-
-
-
-.modalButton {
+.modalButton2 {
   padding: 8px 20px;
+  margin-top: 20px;
   background-attachment: #fff;
   background-color: black;
   color: rgb(255, 243, 243);
@@ -13,12 +11,21 @@
   transition: 0.2s;
 }
 
-.modalButton:hover {
+.modalButton2:hover {
   background-color: rgb(255, 243, 243);
   color: black;
 }
 
-.modalButton:active {
+.modalButton2:active {
   background-color: black;
   color: rgb(255, 243, 243);
+}
+
+.alert{
+  margin: 10px;
+  opacity: 100%;
+  text-align: center;
+  height: 4vw;
+  width: 20vw;
+  font-size: 20px;
 }
