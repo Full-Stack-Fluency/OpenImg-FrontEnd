@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Navbar, Button } from "react-bootstrap";
+import { Nav, Navbar} from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 import LoginButton from "./LoginButton.js";
 import LogoutButton from "./LogoutButton.js";
@@ -13,7 +13,7 @@ class Hamburger extends React.Component {
       <div className="menu">
         <Navbar collapseOnSelect expand="xxxl" sticky="top" >
                 <Navbar.Toggle />
-                <Button variant="secondary" className="log">{this.props.auth0.isAuthenticated ? <LogoutButton /> : <LoginButton />}</Button>
+                {this.props.auth0.isAuthenticated ? <LogoutButton/> : <LoginButton />}
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                     <LinkContainer to="/">
