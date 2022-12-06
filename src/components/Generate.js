@@ -3,7 +3,7 @@ import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import InputForm from './InputForm.js';
 import Tilt from 'react-parallax-tilt';
-import { Spinner, Card, Popover } from 'react-bootstrap';
+import { Spinner, Card, Popover, Alert, Button } from 'react-bootstrap';
 import './Generate.css';
 
 class Generate extends React.Component {
@@ -28,6 +28,7 @@ class Generate extends React.Component {
       popOverShow2: false,
       popOverShow3: false,
       prompt: '',
+      badWords: false,
       stopSpinner: false,
       emotionValue0: '',
       emotionValue1: '',
@@ -37,7 +38,6 @@ class Generate extends React.Component {
       emotionSentimentsArrs1: [],
       emotionSentimentsArrs2: [],
       emotionSentimentsArrs3: [],
-      promptFlagged: false,
       saveSuccess0: false,
       saveSuccess1: false,
       saveSuccess2: false,
@@ -68,7 +68,6 @@ class Generate extends React.Component {
       popOverShow1: false,
       popOverShow2: false,
       popOverShow3: false,
-      promptFlagged: false
     });
     let generatedImg = await axios(config);
     if (generatedImg.data !== true) {
@@ -82,7 +81,7 @@ class Generate extends React.Component {
       });
     } else {
       this.setState({
-        promptFlagged: true,
+        badWords: true,
         stopSpinner: false
       })
     }
@@ -158,6 +157,12 @@ class Generate extends React.Component {
     })
   }
 
+  closeAlert = () => {
+    this.setState({
+      badWords: false
+    })
+  }
+
   render() {
 
 
@@ -166,7 +171,14 @@ class Generate extends React.Component {
         <div handleSubmitPrompt={this.handleSubmitPrompt}></div>
         <div className="container">
           <div className="drop">
-            <InputForm className="inputBox" handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} promptFlagged={this.state.promptFlagged} />
+            <InputForm
+              className="inputBox"
+              handleSubmitPrompt={this.handleSubmitPrompt}
+              savePrompt={this.savePrompt}
+              handleFormChange={this.handleFormChange}
+              badWords={this.state.badWords}
+              closeAlert={this.closeAlert}
+            />
             <div className="loading">{this.state.stopSpinner && <Spinner animation="grow" variant="dark" />}</div>
           </div>
         </div>
@@ -184,7 +196,7 @@ class Generate extends React.Component {
                     {this.state.displayPopover0 &&
                       <div className="popoverShowed">
                         <Popover id="emotionValue">
-                          <Popover.Header id = "popover3Header" as="h2">
+                          <Popover.Header id="popover3Header" as="h2">
                             {this.state.emotionValue0}
                           </Popover.Header>
                           {/* <Popover.Body>
@@ -208,7 +220,7 @@ class Generate extends React.Component {
                     {this.state.popOverShow0 &&
                       <div className="popoverFailed">
                         <Popover id="failed">
-                          <Popover.Header id = "popover3Header" as="h2">
+                          <Popover.Header id="popover3Header" as="h2">
                             Unable to read emotion
                           </Popover.Header>
                         </Popover>
@@ -226,7 +238,7 @@ class Generate extends React.Component {
                     {this.state.emotionSpinner1 && <Spinner animation="grow" variant="dark" />}
                     {this.state.displayPopover1 &&
                       <Popover id="emotionValue">
-                        <Popover.Header id = "popover3Header" as="h2">
+                        <Popover.Header id="popover3Header" as="h2">
                           {this.state.emotionValue1}
                           {/* {this.state.emotionSentimentsArr} */}
                         </Popover.Header>
@@ -249,7 +261,7 @@ class Generate extends React.Component {
                     }
                     {this.state.popOverShow1 &&
                       <Popover id="failed">
-                        <Popover.Header id = "popover3Header" as="h2">
+                        <Popover.Header id="popover3Header" as="h2">
                           Unable to read emotion
                         </Popover.Header>
                       </Popover>}
@@ -265,7 +277,7 @@ class Generate extends React.Component {
                     {this.state.emotionSpinner2 && <Spinner animation="grow" variant="dark" />}
                     {this.state.displayPopover2 &&
                       <Popover id="emotionValue">
-                        <Popover.Header id = "popover3Header" as="h2">
+                        <Popover.Header id="popover3Header" as="h2">
                           {this.state.emotionValue2}
                           {/* {this.state.emotionSentimentsArr} */}
                         </Popover.Header>
@@ -288,7 +300,7 @@ class Generate extends React.Component {
                     }
                     {this.state.popOverShow2 &&
                       <Popover id="failed">
-                        <Popover.Header id = "popover3Header" as="h2">
+                        <Popover.Header id="popover3Header" as="h2">
                           Unable to read emotion
                         </Popover.Header>
                       </Popover>}
@@ -304,7 +316,7 @@ class Generate extends React.Component {
                     {this.state.emotionSpinner3 && <Spinner animation="grow" variant="dark" />}
                     {this.state.displayPopover3 &&
                       <Popover id="emotionValue">
-                        <Popover.Header id = "popover3Header" as="h2">
+                        <Popover.Header id="popover3Header" as="h2">
                           {this.state.emotionValue3}
                           {/* {this.state.emotionSentimentsArr} */}
                         </Popover.Header>
@@ -327,7 +339,7 @@ class Generate extends React.Component {
                     }
                     {this.state.popOverShow3 &&
                       <Popover id="failed">
-                        <Popover.Header id = "popover3Header"as="h2">
+                        <Popover.Header id="popover3Header" as="h2">
                           Unable to read emotion
                         </Popover.Header>
                       </Popover>}

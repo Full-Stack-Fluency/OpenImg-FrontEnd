@@ -23,6 +23,10 @@ body {
   padding-top: 7rem;
 }
 
+.drop{
+  display: block;
+}
+
 .card {
   display: grid;
   min-width: 50rem;
