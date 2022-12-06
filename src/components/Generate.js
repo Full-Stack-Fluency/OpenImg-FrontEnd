@@ -68,6 +68,7 @@ class Generate extends React.Component {
       popOverShow1: false,
       popOverShow2: false,
       popOverShow3: false,
+      badWords: false
     });
     let generatedImg = await axios(config);
     if (generatedImg.data !== true) {
@@ -78,6 +79,7 @@ class Generate extends React.Component {
         img3Url: generatedImg.data.data[2].url,
         img4Url: generatedImg.data.data[3].url,
         stopSpinner: false,
+        badWords: false
       });
     } else {
       this.setState({

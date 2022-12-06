@@ -47,9 +47,6 @@ class InputForm extends React.Component {
           <p className='bad'>
             No bad words!
           </p>
-          <Button onClick={() => this.props.closeAlert()} variant="danger">
-            Close
-          </Button>
         </Alert>
       </div>
     )
