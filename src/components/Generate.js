@@ -186,7 +186,10 @@ class Generate extends React.Component {
         <div className="glassContainer">
           {this.state.img1Url &&
             <>
-              <Tilt>
+              <Tilt
+              tiltMaxAngleX={10}
+              tiltMaxAngleY={10}
+              perspective={800}>
                 <Card className="glassCard">
                   <Card.Img variant="top" src={this.state.img1Url} key={0} alt="Generated with Dall-E 2" />
                   <Card.Body className="cardBody">
@@ -202,7 +205,10 @@ class Generate extends React.Component {
                   </Card.Body>
                 </Card>
               </Tilt>
-              <Tilt>
+              <Tilt
+              tiltMaxAngleX={10}
+              tiltMaxAngleY={10}
+              perspective={800}>
                 <Card className="glassCard">
                   <Card.Img variant="top" src={this.state.img2Url} key={1} alt="Generated with Dall-E 2" />
                   <Card.Body className="cardBody">
@@ -217,7 +223,10 @@ class Generate extends React.Component {
                   </Card.Body>
                 </Card>
               </Tilt>
-              <Tilt>
+              <Tilt
+              tiltMaxAngleX={10}
+              tiltMaxAngleY={10}
+              perspective={800}>
                 <Card className="glassCard">
                   <Card.Img variant="top" src={this.state.img3Url} key={2} alt="Generated with Dall-E 2" />
                   <Card.Body className="cardBody">
@@ -233,7 +242,10 @@ class Generate extends React.Component {
                   </Card.Body>
                 </Card>
               </Tilt>
-              <Tilt>
+              <Tilt
+              tiltMaxAngleX={10}
+              tiltMaxAngleY={10}
+              perspective={800}>
                 <Card className="glassCard">
                   <Card.Img variant="top" src={this.state.img4Url} key={3} alt="Generated with Dall-E 2" />
                   <Card.Body className="cardBody">

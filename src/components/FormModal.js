@@ -30,9 +30,12 @@ class FormModal extends React.Component {
     return (
       <>
         <Modal
+        size="md"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
           show={this.props.isModalShown}
           onHide={this.props.handleCloseModal}
-          className="formModal"
+
         >
           <Form className="modalForm" onSubmit={this.handleRequireInputToGenerate}>
             {this.state.popoverDisplay &&

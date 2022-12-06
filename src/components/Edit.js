@@ -112,7 +112,10 @@ class Edit extends Component {
       return (
         <>
           <div className="glassContainer">
-            <Tilt>
+            <Tilt
+            tiltMaxAngleX={10}
+            tiltMaxAngleY={10}
+            perspective={800}>
               <Card className="glassCard2" key={idx}>
                 {this.state.loading._id === item._id ? <Spinner animation="border" /> : <Card.Img src={item.imgSrc} className="cardPic" alt="Generated with Dall-E 2" />}
                 <Card.Body className="cardBody">
@@ -138,7 +141,7 @@ class Edit extends Component {
         <section className="gridBox">
           {cardItems === [] ? <Spinner animation="border" /> : cardItems}
         </section>
-        <FormModal
+        <FormModal 
           handleEditItem={this.handleEditItem}
           handleCloseModal={this.handleCloseModal}
           isModalShown={this.state.isModalShown}
