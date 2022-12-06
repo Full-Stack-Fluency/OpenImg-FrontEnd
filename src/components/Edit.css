@@ -18,17 +18,23 @@ h1 {
   z-index: 1;
 }
 
-.cards {
-  margin: 30px 10px;
-  border: 1px solid grey;
-  border-radius: 10px;
-  box-shadow: grey 5px 5px 10px;
-}
+.glassCard2{
+  margin: auto;
+  position: relative;
+  width: 280px;
+  margin: 30px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
 
-/* .picDiv{
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-} */
+}
 
 .cardPic {
   border-top-left-radius: 9px;
@@ -40,14 +46,14 @@ h1 {
 .cardBody {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .cardTitle {
   text-align: center;
   color: rgb(72, 72, 72);
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
+  
 }
 
 .buttonDiv {
@@ -56,8 +62,9 @@ h1 {
   justify-content: space-around;
 }
 
-.glassContainer .glassCard .cardBody button {
+.glassContainer .glassCard2 .cardBody button {
   position: relative;
+  height: auto;
   display: inline-block;
   padding: 8px 20px;
   margin-top: 5px;

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import InputForm from './InputForm.js';
 import Tilt from 'react-parallax-tilt';
-import { Spinner, Card, Popover } from 'react-bootstrap';
+import { Spinner, Card } from 'react-bootstrap';
 import './Generate.css';
 
 class Generate extends React.Component {
@@ -28,6 +28,7 @@ class Generate extends React.Component {
       popOverShow2: false,
       popOverShow3: false,
       prompt: '',
+      badWords: false,
       stopSpinner: false,
       emotionValue0: '',
       emotionValue1: '',
@@ -37,7 +38,6 @@ class Generate extends React.Component {
       emotionSentimentsArrs1: [],
       emotionSentimentsArrs2: [],
       emotionSentimentsArrs3: [],
-      promptFlagged: false,
       saveSuccess0: false,
       saveSuccess1: false,
       saveSuccess2: false,
@@ -68,7 +68,7 @@ class Generate extends React.Component {
       popOverShow1: false,
       popOverShow2: false,
       popOverShow3: false,
-      promptFlagged: false
+      badWords: false
     });
     let generatedImg = await axios(config);
     if (generatedImg.data !== true) {
@@ -79,10 +79,11 @@ class Generate extends React.Component {
         img3Url: generatedImg.data.data[2].url,
         img4Url: generatedImg.data.data[3].url,
         stopSpinner: false,
+        badWords: false
       });
     } else {
       this.setState({
-        promptFlagged: true,
+        badWords: true,
         stopSpinner: false
       })
     }
@@ -158,6 +159,12 @@ class Generate extends React.Component {
     })
   }
 
+  closeAlert = () => {
+    this.setState({
+      badWords: false
+    })
+  }
+
   render() {
 
 
@@ -166,7 +173,14 @@ class Generate extends React.Component {
         <div handleSubmitPrompt={this.handleSubmitPrompt}></div>
         <div className="container">
           <div className="drop">
-            <InputForm className="inputBox" handleSubmitPrompt={this.handleSubmitPrompt} savePrompt={this.savePrompt} handleFormChange={this.handleFormChange} promptFlagged={this.state.promptFlagged} />
+            <InputForm
+              className="inputBox"
+              handleSubmitPrompt={this.handleSubmitPrompt}
+              savePrompt={this.savePrompt}
+              handleFormChange={this.handleFormChange}
+              badWords={this.state.badWords}
+              closeAlert={this.closeAlert}
+            />
             <div className="loading">{this.state.stopSpinner && <Spinner animation="grow" variant="dark" />}</div>
           </div>
         </div>
@@ -174,163 +188,79 @@ class Generate extends React.Component {
         <div className="glassContainer">
           {this.state.img1Url &&
             <>
-              <Tilt>
+              <Tilt
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                perspective={800}>
                 <Card className="glassCard">
                   <Card.Img variant="top" src={this.state.img1Url} key={0} alt="Generated with Dall-E 2" />
                   <Card.Body className="cardBody">
-                    {this.props.auth0.isAuthenticated && this.state.img1Url && <button variant="primary" onClick={() => this.savePrompt(0)} >{this.state.saveSuccess0 ? <>Saved </> : <>Save to Collection</>}</button>}
-                    {this.state.img1Url && <button className="button1" onClick={() => this.getEmotion(0)}>Get Emotion</button>}
+                    {this.props.auth0.isAuthenticated && this.state.img1Url && <button className="saveBtn" variant="primary" onClick={() => this.savePrompt(0)} >{this.state.saveSuccess0 ? <>Saved </> : <>Save to Collection</>}</button>}
+                    {this.state.img1Url && <button className="emoBtn" onClick={() => this.getEmotion(0)}>Get Emotion</button>}
                     {this.state.emotionSpinner0 && <Spinner animation="grow" variant="dark" />}
                     {this.state.displayPopover0 &&
-                      <div className="popoverShowed">
-                        <Popover id="emotion value">
-                          <Popover.Header as="h3">
-                            {this.state.emotionValue0}
-                          </Popover.Header>
-                          <Popover.Body>
-                            Anger :{this.state.emotionSentimentsArrs0.angry.toFixed(4)}
-                            <br></br>
-                            Disgust: {this.state.emotionSentimentsArrs0.disgust.toFixed(4)}
-                            <br></br>
-                            Fear: {this.state.emotionSentimentsArrs0.fear.toFixed(4)}
-                            <br></br>
-                            Happy: {this.state.emotionSentimentsArrs0.happy.toFixed(4)}
-                            <br></br>
-                            Neutral: {this.state.emotionSentimentsArrs0.neutral.toFixed(4)}
-                            <br></br>
-                            Sad: {this.state.emotionSentimentsArrs0.sad.toFixed(4)}
-                            <br></br>
-                            Surprise: {this.state.emotionSentimentsArrs0.surprise.toFixed(4)}
-                          </Popover.Body>
-                        </Popover>
-                      </div>
+                      <p className="emotionButton">{this.state.emotionValue0}</p>
+
                     }
                     {this.state.popOverShow0 &&
-                      <div className="popoverFailed">
-                        <Popover id="failed">
-                          <Popover.Header as="h3">
-                            Unable to read emotion
-                          </Popover.Header>
-                        </Popover>
-                      </div>
-                    }
+                      <p className="emotionButton">Unable to get Emotion</p>}
                   </Card.Body>
                 </Card>
               </Tilt>
-              <Tilt>
+              <Tilt
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                perspective={800}>
                 <Card className="glassCard">
                   <Card.Img variant="top" src={this.state.img2Url} key={1} alt="Generated with Dall-E 2" />
                   <Card.Body className="cardBody">
-                    {this.props.auth0.isAuthenticated && this.state.img1Url && <button variant="primary" onClick={() => this.savePrompt(1)} > {this.state.saveSuccess1 ? <>Saved </> : <>Save to Collection</>} </button>}
-                    {this.state.img1Url && <button className="button2" onClick={() => this.getEmotion(1)}>Get Emotion</button>}
+                    {this.props.auth0.isAuthenticated && this.state.img1Url && <button className="saveBtn" variant="primary" onClick={() => this.savePrompt(1)} > {this.state.saveSuccess1 ? <>Saved </> : <>Save to Collection</>} </button>}
+                    {this.state.img1Url && <button className="emoBtn" onClick={() => this.getEmotion(1)}>Get Emotion</button>}
                     {this.state.emotionSpinner1 && <Spinner animation="grow" variant="dark" />}
                     {this.state.displayPopover1 &&
-                      <Popover id="emotion value">
-                        <Popover.Header as="h3">
-                          {this.state.emotionValue1}
-                          {/* {this.state.emotionSentimentsArr} */}
-                        </Popover.Header>
-                        <Popover.Body>
-                          Anger :{this.state.emotionSentimentsArrs1.angry.toFixed(4)}
-                          <br></br>
-                          Disgust: {this.state.emotionSentimentsArrs1.disgust.toFixed(4)}
-                          <br></br>
-                          Fear: {this.state.emotionSentimentsArrs1.fear.toFixed(4)}
-                          <br></br>
-                          Happy: {this.state.emotionSentimentsArrs1.happy.toFixed(4)}
-                          <br></br>
-                          Neutral: {this.state.emotionSentimentsArrs1.neutral.toFixed(4)}
-                          <br></br>
-                          Sad: {this.state.emotionSentimentsArrs1.sad.toFixed(4)}
-                          <br></br>
-                          Surprise: {this.state.emotionSentimentsArrs1.surprise.toFixed(4)}
-                        </Popover.Body>
-                      </Popover>
+                      <p className="emotionButton">{this.state.emotionValue1}</p>
+
                     }
                     {this.state.popOverShow1 &&
-                      <Popover id="failed">
-                        <Popover.Header as="h3">
-                          Unable to read emotion
-                        </Popover.Header>
-                      </Popover>}
+                      <p className="emotionButton">Unable to get Emotion</p>}
                   </Card.Body>
                 </Card>
               </Tilt>
-              <Tilt>
+              <Tilt
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                perspective={800}>
                 <Card className="glassCard">
                   <Card.Img variant="top" src={this.state.img3Url} key={2} alt="Generated with Dall-E 2" />
                   <Card.Body className="cardBody">
-                    {this.props.auth0.isAuthenticated && this.state.img1Url && <button variant="primary" onClick={() => this.savePrompt(2)} >{this.state.saveSuccess2 ? <>Saved </> : <>Save to Collection</>}</button>}
-                    {this.state.img1Url && <button className="button3" onClick={() => this.getEmotion(2)}>Get Emotion</button>}
+                    {this.props.auth0.isAuthenticated && this.state.img1Url && <button className="saveBtn" variant="primary" onClick={() => this.savePrompt(2)} >{this.state.saveSuccess2 ? <>Saved </> : <>Save to Collection</>}</button>}
+                    {this.state.img1Url && <button className="emoBtn" onClick={() => this.getEmotion(2)}>Get Emotion</button>}
                     {this.state.emotionSpinner2 && <Spinner animation="grow" variant="dark" />}
                     {this.state.displayPopover2 &&
-                      <Popover id="emotion value">
-                        <Popover.Header as="h3">
-                          {this.state.emotionValue2}
-                          {/* {this.state.emotionSentimentsArr} */}
-                        </Popover.Header>
-                        <Popover.Body>
-                          Anger :{this.state.emotionSentimentsArrs2.angry.toFixed(4)}
-                          <br></br>
-                          Disgust: {this.state.emotionSentimentsArrs2.disgust.toFixed(4)}
-                          <br></br>
-                          Fear: {this.state.emotionSentimentsArrs2.fear.toFixed(4)}
-                          <br></br>
-                          Happy: {this.state.emotionSentimentsArrs2.happy.toFixed(4)}
-                          <br></br>
-                          Neutral: {this.state.emotionSentimentsArrs2.neutral.toFixed(4)}
-                          <br></br>
-                          Sad: {this.state.emotionSentimentsArrs2.sad.toFixed(4)}
-                          <br></br>
-                          Surprise: {this.state.emotionSentimentsArrs2.surprise.toFixed(4)}
-                        </Popover.Body>
-                      </Popover>
+                      <p className="emotionButton">{this.state.emotionValue2}</p>
+
                     }
                     {this.state.popOverShow2 &&
-                      <Popover id="failed">
-                        <Popover.Header as="h3">
-                          Unable to read emotion
-                        </Popover.Header>
-                      </Popover>}
+                      <p className="emotionButton">Unable to get Emotion</p>}
                   </Card.Body>
                 </Card>
               </Tilt>
-              <Tilt>
+              <Tilt
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                perspective={800}>
                 <Card className="glassCard">
                   <Card.Img variant="top" src={this.state.img4Url} key={3} alt="Generated with Dall-E 2" />
                   <Card.Body className="cardBody">
-                    {this.props.auth0.isAuthenticated && this.state.img1Url && <button variant="primary" onClick={() => this.savePrompt(3)} >{this.state.saveSuccess3 ? <>Saved </> : <>Save to Collection</>}</button>}
-                    {this.state.img1Url && <button className="button4" onClick={() => this.getEmotion(3)}>Get Emotion</button>}
+                    {this.props.auth0.isAuthenticated && this.state.img1Url && <button className="saveBtn" variant="primary" onClick={() => this.savePrompt(3)} >{this.state.saveSuccess3 ? <>Saved </> : <>Save to Collection</>}</button>}
+                    {this.state.img1Url && <button className="emoBtn" onClick={() => this.getEmotion(3)}>Get Emotion</button>}
                     {this.state.emotionSpinner3 && <Spinner animation="grow" variant="dark" />}
                     {this.state.displayPopover3 &&
-                      <Popover id="emotion value">
-                        <Popover.Header as="h3">
-                          {this.state.emotionValue3}
-                          {/* {this.state.emotionSentimentsArr} */}
-                        </Popover.Header>
-                        <Popover.Body>
-                          Anger :{this.state.emotionSentimentsArrs3.angry.toFixed(4)}
-                          <br></br>
-                          Disgust: {this.state.emotionSentimentsArrs3.disgust.toFixed(4)}
-                          <br></br>
-                          Fear: {this.state.emotionSentimentsArrs3.fear.toFixed(4)}
-                          <br></br>
-                          Happy: {this.state.emotionSentimentsArrs3.happy.toFixed(4)}
-                          <br></br>
-                          Neutral: {this.state.emotionSentimentsArrs3.neutral.toFixed(4)}
-                          <br></br>
-                          Sad: {this.state.emotionSentimentsArrs3.sad.toFixed(4)}
-                          <br></br>
-                          Surprise: {this.state.emotionSentimentsArrs3.surprise.toFixed(4)}
-                        </Popover.Body>
-                      </Popover>
+                      <p className="emotionButton">{this.state.emotionValue3}</p>
+
                     }
                     {this.state.popOverShow3 &&
-                      <Popover id="failed">
-                        <Popover.Header as="h3">
-                          Unable to read emotion
-                        </Popover.Header>
-                      </Popover>}
+                      <p className="emotionButton">Unable to get Emotion</p>}
                   </Card.Body>
                 </Card>
               </Tilt>

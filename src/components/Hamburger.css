@@ -3,10 +3,9 @@ body {
   text-align: center;
 }
 
-.logButton {
-  left: 8vw;
-  position: absolute;
-  width: 106vw;
+.log {
+  height: 4rem;
+  width: 10rem;
 }
 
 
@@ -22,11 +21,11 @@ body {
 }
 
 .menu {
-  padding-left: 48vw;
-  padding-right: 4vw;
+  padding-left: 50rem;
+  padding-right: 42rem;
   padding-top: 1vw;
   font-weight: bolder;
   background: none;
-  width: 106vw;
+  width: 112rem;
   border-radius: 10px;
 }
