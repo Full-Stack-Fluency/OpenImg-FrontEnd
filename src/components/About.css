@@ -131,7 +131,6 @@ body::after {
     padding-top: 10px;
     backdrop-filter: blur(20px);
 }
-
 .modal .modal-content {
     background: none;
     margin: 0 auto;
