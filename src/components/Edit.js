@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Card, Spinner } from 'react-bootstrap';
+import { Card, Spinner,Alert,Button } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
 import Tilt from 'react-parallax-tilt';
 import axios from 'axios';
@@ -15,6 +15,7 @@ class Edit extends Component {
       itemToChange: {},
       isModalShown: false,
       loading: {},
+      badWords: false
     }
   }
 
@@ -60,6 +61,7 @@ class Edit extends Component {
     e.preventDefault();
     this.setState({
       loading: obj,
+      badWords: false,
     });
     try {
       let reqbodyObj = { prompt: e.target.prompt.value }
@@ -70,22 +72,30 @@ class Edit extends Component {
         data: reqbodyObj
       }
       let newGeneratedImg = await axios(config);
-      let newItem = {
-        prompt: e.target.prompt.value || this.state.itemToChange.prompt,
-        imgSrc: newGeneratedImg.data.data[0].url || 'Image could not be created',
-        userEmail: this.state.itemToChange.userEmail,
-        __v: this.state.itemToChange.__v,
-        _id: this.state.itemToChange._id
+      console.log(newGeneratedImg);
+      if (newGeneratedImg.data !== true) {
+        let newItem = {
+          prompt: e.target.prompt.value || this.state.itemToChange.prompt,
+          imgSrc: newGeneratedImg.data.data[0].url || 'Image could not be created',
+          userEmail: this.state.itemToChange.userEmail,
+          __v: this.state.itemToChange.__v,
+          _id: this.state.itemToChange._id
+        }
+        let url = `${process.env.REACT_APP_SERVER}/item/${newItem._id}`;
+        let updateItemObj = await axios.put(url, newItem);
+        let updatedResultsArray = this.state.results.map(item => {
+          return item._id === newItem._id ? updateItemObj.data : item;
+        });
+        this.setState({
+          results: updatedResultsArray,
+          loading: {},
+        });
+      } else {
+        this.setState({
+          badWords: true,
+          loading: {}
+        })
       }
-      let url = `${process.env.REACT_APP_SERVER}/item/${newItem._id}`;
-      let updateItemObj = await axios.put(url, newItem);
-      let updatedResultsArray = this.state.results.map(item => {
-        return item._id === newItem._id ? updateItemObj.data : item;
-      });
-      this.setState({
-        results: updatedResultsArray,
-        loading: {},
-      });
     } catch (err) {
     }
   }
@@ -104,9 +114,19 @@ class Edit extends Component {
 
   componentDidMount() {
     this.getItems();
+    this.setState({
+      badWords:false
+    });
+  }
+
+  closeAlert = () => {
+    this.setState({
+      badWords: false
+    })
   }
 
   render() {
+    console.log(this.state.badWords)
 
     let cardItems = this.state.results.map((item, idx) => {
       return (
@@ -143,7 +163,17 @@ class Edit extends Component {
           handleCloseModal={this.handleCloseModal}
           isModalShown={this.state.isModalShown}
           itemToChange={this.state.itemToChange}
+          badWords={this.state.badWords}
+          closeAlert={this.closeAlert}
         />
+        <Alert variant="danger" show={this.state.badWords} >
+          <p className='bad'>
+            No bad words!
+          </p>
+          <Button onClick={() => this.closeAlert()} variant="danger">
+            Close
+          </Button>
+        </Alert>
       </>
     );
   }

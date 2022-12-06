@@ -1,28 +1,23 @@
 import React from 'react';
-import { Modal, Form, Popover } from 'react-bootstrap';
+import { Modal, Form, Alert,Button } from 'react-bootstrap';
 import './FormModal.css';
 
 class FormModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      popoverDisplay: false
+      popoverDisplay: false,
+      empty:false
     }
   }
 
-  handleRequireInputToGenerate = e => {
-    e.preventDefault();
+  handleRequireInputToGenerate = (e) => {
     if (e) e.preventDefault();
-    if (e.target.prompt.value !== '') {
-      this.props.handleEditItem(e, this.props.itemToChange);
-      this.props.handleCloseModal();
+    if (e.target.prompt.value === '') {
       this.setState({
-        popoverDisplay: false
+        empty: true
       })
-    } else {
-      this.setState({
-        popoverDisplay: true
-      })
+    } else { this.props.handleEditItem(e);
     }
   }
 
@@ -35,16 +30,17 @@ class FormModal extends React.Component {
           className="formModal"
         >
           <Form className="modalForm" onSubmit={this.handleRequireInputToGenerate}>
-            {this.state.popoverDisplay &&
-              <Popover id="error message for form not submit correctly">
-                <Popover.Header as="h3">
-                  Prompt Required
-                </Popover.Header>
-                <Popover.Body>
-                  cmon bruh at least fill it out before you spam click
-                </Popover.Body>
-              </Popover>
-            }
+          <Alert className="alert" show={this.state.empty} >
+          <p>
+            Please enter a prompt
+          </p>
+          <hr />
+          <div className="glass">
+            <Button onClick={() => this.setState({ empty: false })} variant="outline-success">
+              Close
+            </Button>
+          </div>
+        </Alert>
             <Form.Group controlId='prompt'>
               <Form.Label>Input new prompt</Form.Label>
               <Form.Control type="text" placeholder={this.props.itemToChange.prompt} />
