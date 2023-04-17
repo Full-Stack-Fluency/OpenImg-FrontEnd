@@ -6,6 +6,7 @@ body {
     background: no-repeat fixed center linear-gradient(rgb(183, 255, 0), rgb(255, 0, 251));
     background-repeat: no-repeat;
     background-size: auto;
+    overflow: hidden;
 }
 
 body::before {
@@ -36,7 +37,7 @@ body::after {
 }
 
 .glassContainer {
-    padding-top: 5%;
+    padding-top: 10%;
     padding-left: 10%;
     position: relative;
     display: grid;
