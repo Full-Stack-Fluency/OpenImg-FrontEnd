@@ -12,7 +12,9 @@ class Hamburger extends React.Component {
       <>
       <div className="menu">
         <Navbar collapseOnSelect expand="xxxl" sticky="top" >
+                <div className="hamburger">
                 <Navbar.Toggle />
+                </div>
                 {this.props.auth0.isAuthenticated ? <LogoutButton/> : <LoginButton />}
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">

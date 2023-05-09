@@ -6,7 +6,7 @@ import "./LoginButton.css";
 
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
-  return <Button variant="secondary" className="log"  onClick={() => loginWithRedirect()}><h3>Log In</h3></Button>;
+  return <div class="loginButton"><Button variant="secondary" onClick={() => loginWithRedirect()}><h3>Log In</h3></Button></div>;
 };
 
 

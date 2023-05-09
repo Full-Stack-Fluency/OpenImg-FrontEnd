@@ -1,8 +1,16 @@
-body {
-  margin: auto;
-}
 
 .container {
+  padding-top: 5%;
+  padding-left: 10%;
+  position: relative;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+.submit-container {
   padding-top: 5%;
   padding-left: 10%;
   position: relative;
@@ -12,10 +20,6 @@ body {
   max-width: 1200px;
   flex-wrap: wrap;
   z-index: 1;
-}
-
-.container2 {
-  display: flex
 }
 
 .popoverShowed {
@@ -48,7 +52,7 @@ body {
   position: relative;
 }
 
-.container .drop {
+.submit-container .drop {
   position: relative;
   width: 600px;
   height: 600px;
@@ -64,7 +68,7 @@ body {
   padding-top: 2rem;
 }
 
-.container .drop:hover {
+.submit-container .drop:hover {
   border-radius: 70%;
 
 }

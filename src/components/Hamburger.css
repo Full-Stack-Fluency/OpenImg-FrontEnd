@@ -1,31 +1,14 @@
-body {
-  border-radius: 2vw;
-  text-align: center;
+.hamburger {
+  margin-left: 2rem;
+  margin-top: 1rem;
 }
-
-.log {
-  height: 4rem;
-  width: 11rem;
-}
-
-
 .navbar-toggler-icon {
-  padding-left: 2vw;
-  font-size: 3vw;
-  background: none;
-  color: black;
+  font-size: 3rem;
 }
 
 .navbar-nav {
+  position: absolute;
+  margin-left: 2.5rem;
   font-size: larger;
-}
-
-.menu {
-  padding-left: 50rem;
-  padding-right: 42rem;
-  padding-top: 1vw;
   font-weight: bolder;
-  background: none;
-  width: 112rem;
-  border-radius: 10px;
 }
