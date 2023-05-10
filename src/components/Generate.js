@@ -1,10 +1,9 @@
 import React from "react";
 import axios from "axios";
 import { withAuth0 } from "@auth0/auth0-react";
-import InputForm from "./InputForm.js";
+import InputForm from "./utils/InputForm.js";
 import Tilt from "react-parallax-tilt";
 import { Spinner, Card } from "react-bootstrap";
-import "./Generate.css";
 
 class Generate extends React.Component {
   constructor(props) {
@@ -186,7 +185,7 @@ class Generate extends React.Component {
           </div>
         </div>
 
-        <div className="imageContainer">
+        <div className="glassContainer">
           {this.state.img1Url && (
             <>
               <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={800}>
