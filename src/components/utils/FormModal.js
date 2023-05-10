@@ -8,7 +8,6 @@ class FormModal extends React.Component {
       noInput: false,
     };
   }
-
   handleRequireInputToGenerate = (e) => {
     e.preventDefault();
     if (e.target.prompt.value !== "") {

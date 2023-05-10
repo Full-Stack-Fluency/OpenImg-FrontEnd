@@ -9,13 +9,11 @@ class About extends Component {
       isOpen: [false, false, false, false],
     };
   }
-
   openModal = (idx) => {
     let newArr = [false, false, false, false];
     newArr[idx] = true;
     this.setState({ isOpen: newArr });
   };
-
   closeModal = () => {
     this.setState({ isOpen: [false, false, false, false] });
   };

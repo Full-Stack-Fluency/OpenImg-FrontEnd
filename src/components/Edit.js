@@ -16,7 +16,6 @@ class Edit extends Component {
       loading: {},
     };
   }
-
   getItems = async () => {
     try {
       if (this.props.auth0.isAuthenticated) {

@@ -27,7 +27,7 @@ class Hamburger extends React.Component {
                 <LinkContainer to="/edit">
                   <Nav.Link href="/edit">View Saved</Nav.Link>
                 </LinkContainer>
-                <LinkContainer className="about" to="/about">
+                <LinkContainer to="/about">
                   <Nav.Link href="/about">About</Nav.Link>
                 </LinkContainer>
               </Nav>

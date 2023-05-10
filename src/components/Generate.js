@@ -87,7 +87,6 @@ class Generate extends React.Component {
       });
     }
   };
-
   getEmotion = async (x) => {
     let reqbodyObj = { url: this.state.generatedImgArr[x].url };
     const config = {
@@ -186,187 +185,193 @@ class Generate extends React.Component {
         </div>
 
         <div className="glassContainer">
-          {this.state.img1Url && (
-            <>
-              <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={800}>
-                <Card className="glassCard">
-                  <Card.Img
-                    variant="top"
-                    src={this.state.img1Url}
-                    key={0}
-                    alt="Generated with Dall-E 2"
-                  />
-                  <Card.Body className="cardBody">
-                    {this.props.auth0.isAuthenticated && this.state.img1Url && (
-                      <button
-                        className="saveBtn"
-                        variant="primary"
-                        onClick={() => this.savePrompt(0)}
-                      >
-                        {this.state.saveSuccess0 ? (
-                          <>Saved </>
-                        ) : (
-                          <>Save to Collection</>
+          <div className="cardContainer">
+            {
+              <>
+                <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={800}>
+                  <Card className="glassCard">
+                    <Card.Img
+                      variant="top"
+                      src={this.state.img1Url}
+                      key={0}
+                      alt="Generated with Dall-E 2"
+                    />
+                    <Card.Body className="cardBody">
+                      {this.props.auth0.isAuthenticated &&
+                        this.state.img1Url && (
+                          <button
+                            className="saveBtn"
+                            variant="primary"
+                            onClick={() => this.savePrompt(0)}
+                          >
+                            {this.state.saveSuccess0 ? (
+                              <>Saved </>
+                            ) : (
+                              <>Save to Collection</>
+                            )}
+                          </button>
                         )}
-                      </button>
-                    )}
-                    {this.state.img1Url && (
-                      <button
-                        className="emoBtn"
-                        onClick={() => this.getEmotion(0)}
-                      >
-                        Get Emotion
-                      </button>
-                    )}
-                    {this.state.emotionSpinner0 && (
-                      <Spinner animation="grow" variant="dark" />
-                    )}
-                    {this.state.displayPopover0 && (
-                      <p className="emotionButton">
-                        {this.state.emotionValue0}
-                      </p>
-                    )}
-                    {this.state.popOverShow0 && (
-                      <p className="emotionButton">Unable to get Emotion</p>
-                    )}
-                  </Card.Body>
-                </Card>
-              </Tilt>
-              <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={800}>
-                <Card className="glassCard">
-                  <Card.Img
-                    variant="top"
-                    src={this.state.img2Url}
-                    key={1}
-                    alt="Generated with Dall-E 2"
-                  />
-                  <Card.Body className="cardBody">
-                    {this.props.auth0.isAuthenticated && this.state.img1Url && (
-                      <button
-                        className="saveBtn"
-                        variant="primary"
-                        onClick={() => this.savePrompt(1)}
-                      >
-                        {" "}
-                        {this.state.saveSuccess1 ? (
-                          <>Saved </>
-                        ) : (
-                          <>Save to Collection</>
-                        )}{" "}
-                      </button>
-                    )}
-                    {this.state.img1Url && (
-                      <button
-                        className="emoBtn"
-                        onClick={() => this.getEmotion(1)}
-                      >
-                        Get Emotion
-                      </button>
-                    )}
-                    {this.state.emotionSpinner1 && (
-                      <Spinner animation="grow" variant="dark" />
-                    )}
-                    {this.state.displayPopover1 && (
-                      <p className="emotionButton">
-                        {this.state.emotionValue1}
-                      </p>
-                    )}
-                    {this.state.popOverShow1 && (
-                      <p className="emotionButton">Unable to get Emotion</p>
-                    )}
-                  </Card.Body>
-                </Card>
-              </Tilt>
-              <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={800}>
-                <Card className="glassCard">
-                  <Card.Img
-                    variant="top"
-                    src={this.state.img3Url}
-                    key={2}
-                    alt="Generated with Dall-E 2"
-                  />
-                  <Card.Body className="cardBody">
-                    {this.props.auth0.isAuthenticated && this.state.img1Url && (
-                      <button
-                        className="saveBtn"
-                        variant="primary"
-                        onClick={() => this.savePrompt(2)}
-                      >
-                        {this.state.saveSuccess2 ? (
-                          <>Saved </>
-                        ) : (
-                          <>Save to Collection</>
+                      {this.state.img1Url && (
+                        <button
+                          className="emoBtn"
+                          onClick={() => this.getEmotion(0)}
+                        >
+                          Get Emotion
+                        </button>
+                      )}
+                      {this.state.emotionSpinner0 && (
+                        <Spinner animation="grow" variant="dark" />
+                      )}
+                      {this.state.displayPopover0 && (
+                        <p className="emotionButton">
+                          {this.state.emotionValue0}
+                        </p>
+                      )}
+                      {this.state.popOverShow0 && (
+                        <p className="emotionButton">Unable to get Emotion</p>
+                      )}
+                    </Card.Body>
+                  </Card>
+                </Tilt>
+                <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={800}>
+                  <Card className="glassCard">
+                    <Card.Img
+                      variant="top"
+                      src={this.state.img2Url}
+                      key={1}
+                      alt="Generated with Dall-E 2"
+                    />
+                    <Card.Body className="cardBody">
+                      {this.props.auth0.isAuthenticated &&
+                        this.state.img1Url && (
+                          <button
+                            className="saveBtn"
+                            variant="primary"
+                            onClick={() => this.savePrompt(1)}
+                          >
+                            {" "}
+                            {this.state.saveSuccess1 ? (
+                              <>Saved </>
+                            ) : (
+                              <>Save to Collection</>
+                            )}{" "}
+                          </button>
                         )}
-                      </button>
-                    )}
-                    {this.state.img1Url && (
-                      <button
-                        className="emoBtn"
-                        onClick={() => this.getEmotion(2)}
-                      >
-                        Get Emotion
-                      </button>
-                    )}
-                    {this.state.emotionSpinner2 && (
-                      <Spinner animation="grow" variant="dark" />
-                    )}
-                    {this.state.displayPopover2 && (
-                      <p className="emotionButton">
-                        {this.state.emotionValue2}
-                      </p>
-                    )}
-                    {this.state.popOverShow2 && (
-                      <p className="emotionButton">Unable to get Emotion</p>
-                    )}
-                  </Card.Body>
-                </Card>
-              </Tilt>
-              <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={800}>
-                <Card className="glassCard">
-                  <Card.Img
-                    variant="top"
-                    src={this.state.img4Url}
-                    key={3}
-                    alt="Generated with Dall-E 2"
-                  />
-                  <Card.Body className="cardBody">
-                    {this.props.auth0.isAuthenticated && this.state.img1Url && (
-                      <button
-                        className="saveBtn"
-                        variant="primary"
-                        onClick={() => this.savePrompt(3)}
-                      >
-                        {this.state.saveSuccess3 ? (
-                          <>Saved </>
-                        ) : (
-                          <>Save to Collection</>
+                      {this.state.img1Url && (
+                        <button
+                          className="emoBtn"
+                          onClick={() => this.getEmotion(1)}
+                        >
+                          Get Emotion
+                        </button>
+                      )}
+                      {this.state.emotionSpinner1 && (
+                        <Spinner animation="grow" variant="dark" />
+                      )}
+                      {this.state.displayPopover1 && (
+                        <p className="emotionButton">
+                          {this.state.emotionValue1}
+                        </p>
+                      )}
+                      {this.state.popOverShow1 && (
+                        <p className="emotionButton">Unable to get Emotion</p>
+                      )}
+                    </Card.Body>
+                  </Card>
+                </Tilt>
+                <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={800}>
+                  <Card className="glassCard">
+                    <Card.Img
+                      variant="top"
+                      src={this.state.img3Url}
+                      key={2}
+                      alt="Generated with Dall-E 2"
+                    />
+                    <Card.Body className="cardBody">
+                      {this.props.auth0.isAuthenticated &&
+                        this.state.img1Url && (
+                          <button
+                            className="saveBtn"
+                            variant="primary"
+                            onClick={() => this.savePrompt(2)}
+                          >
+                            {this.state.saveSuccess2 ? (
+                              <>Saved </>
+                            ) : (
+                              <>Save to Collection</>
+                            )}
+                          </button>
                         )}
-                      </button>
-                    )}
-                    {this.state.img1Url && (
-                      <button
-                        className="emoBtn"
-                        onClick={() => this.getEmotion(3)}
-                      >
-                        Get Emotion
-                      </button>
-                    )}
-                    {this.state.emotionSpinner3 && (
-                      <Spinner animation="grow" variant="dark" />
-                    )}
-                    {this.state.displayPopover3 && (
-                      <p className="emotionButton">
-                        {this.state.emotionValue3}
-                      </p>
-                    )}
-                    {this.state.popOverShow3 && (
-                      <p className="emotionButton">Unable to get Emotion</p>
-                    )}
-                  </Card.Body>
-                </Card>
-              </Tilt>
-            </>
-          )}
+                      {this.state.img1Url && (
+                        <button
+                          className="emoBtn"
+                          onClick={() => this.getEmotion(2)}
+                        >
+                          Get Emotion
+                        </button>
+                      )}
+                      {this.state.emotionSpinner2 && (
+                        <Spinner animation="grow" variant="dark" />
+                      )}
+                      {this.state.displayPopover2 && (
+                        <p className="emotionButton">
+                          {this.state.emotionValue2}
+                        </p>
+                      )}
+                      {this.state.popOverShow2 && (
+                        <p className="emotionButton">Unable to get Emotion</p>
+                      )}
+                    </Card.Body>
+                  </Card>
+                </Tilt>
+                <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={800}>
+                  <Card className="glassCard">
+                    <Card.Img
+                      variant="top"
+                      src={this.state.img4Url}
+                      key={3}
+                      alt="Generated with Dall-E 2"
+                    />
+                    <Card.Body className="cardBody">
+                      {this.props.auth0.isAuthenticated &&
+                        this.state.img1Url && (
+                          <button
+                            className="saveBtn"
+                            variant="primary"
+                            onClick={() => this.savePrompt(3)}
+                          >
+                            {this.state.saveSuccess3 ? (
+                              <>Saved </>
+                            ) : (
+                              <>Save to Collection</>
+                            )}
+                          </button>
+                        )}
+                      {this.state.img1Url && (
+                        <button
+                          className="emoBtn"
+                          onClick={() => this.getEmotion(3)}
+                        >
+                          Get Emotion
+                        </button>
+                      )}
+                      {this.state.emotionSpinner3 && (
+                        <Spinner animation="grow" variant="dark" />
+                      )}
+                      {this.state.displayPopover3 && (
+                        <p className="emotionButton">
+                          {this.state.emotionValue3}
+                        </p>
+                      )}
+                      {this.state.popOverShow3 && (
+                        <p className="emotionButton">Unable to get Emotion</p>
+                      )}
+                    </Card.Body>
+                  </Card>
+                </Tilt>
+              </>
+            }
+          </div>
         </div>
       </>
     );

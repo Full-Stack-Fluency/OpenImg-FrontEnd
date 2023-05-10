@@ -8,7 +8,6 @@ class InputForm extends React.Component {
       empty: false,
     };
   }
-
   handleRequireInputToGenerate = (e) => {
     if (e) e.preventDefault();
     if (e.target.prompt.value === "") {

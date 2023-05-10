@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 
 const LogoutButton = () => {
   const { logout } = useAuth0();
+
   return (
     <div class="loginButton">
       <Button
@@ -15,4 +16,5 @@ const LogoutButton = () => {
     </div>
   );
 };
+
 export default LogoutButton;
