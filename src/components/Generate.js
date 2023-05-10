@@ -186,7 +186,7 @@ class Generate extends React.Component {
           </div>
         </div>
 
-        <div className="glassContainer">
+        <div className="imageContainer">
           {this.state.img1Url && (
             <>
               <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={800}>
