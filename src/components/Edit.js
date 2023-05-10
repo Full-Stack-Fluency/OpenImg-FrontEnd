@@ -112,10 +112,7 @@ class Edit extends Component {
                 {this.state.loading._id === item._id ? (
                   <Spinner animation="border" />
                 ) : (
-                  <Card.Img
-                    src={item.imgSrc}
-                    alt="Generated with Dall-E 2"
-                  />
+                  <Card.Img src={item.imgSrc} alt="Generated with Dall-E 2" />
                 )}
                 <Card.Body>
                   <Card.Title>
