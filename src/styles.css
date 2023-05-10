@@ -73,14 +73,11 @@ h3:hover {
   position: relative;
 }
 
-.buttonGen {
-  padding-top: 2vw;
-}
-.imgGenerator {
+.generateButton {
   position: relative;
   display: inline-block;
   padding: 8px 20px;
-  margin-top: 5px;
+  margin-top: 1rem;
   background-attachment: #fff;
   background-color: black;
   color: rgb(255, 243, 243);
@@ -147,10 +144,6 @@ h3:hover {
   backdrop-filter: blur(5px);
 }
 
-.input {
-  display: block;
-}
-
 .alert {
   margin: 10px;
   opacity: 100%;
@@ -198,7 +191,7 @@ h3:hover {
   z-index: 1;
 }
 .submit-container {
-  padding-top: 5%;
+  /* padding-top: 5%; */
   position: relative;
   display: flex;
   justify-content: center;
@@ -226,7 +219,7 @@ h3:hover {
 }
 
 .card-img-top {
-  min-width: 200px;
+  /* min-width: 200px; */
   display: flex;
   position: relative;
   align-content: center;
@@ -269,21 +262,6 @@ form {
   align-items: center;
 }
 
-.imgCard {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-  padding-top: 17vw;
-  padding-left: 10vw;
-  padding-bottom: 50vw;
-  padding-right: 10vw;
-  flex-wrap: wrap;
-}
-
 .imageContainer {
   display: flex;
   flex-wrap: wrap;
@@ -294,9 +272,6 @@ form {
   width: 20%;
   min-height: 20vh;
   display: flex;
-}
-.card-img-top {
-  height: 15vw;
 }
 
 .loading {
@@ -405,30 +380,6 @@ body {
   align-items: center;
   max-width: 1200px;
   z-index: 1;
-}
-
-.glassCard2 {
-  margin: auto;
-  position: relative;
-  width: 280px;
-  margin: 30px;
-  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  border-left: 1px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
-}
-
-.cardPic {
-  border-top-left-radius: 9px;
-  border-top-right-radius: 9px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
 .cardBody {
@@ -630,32 +581,46 @@ body {
 .menu {
   background: none;
 }
-
-.cardContainer {
-  margin-top: -6rem;
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  height: 500px;
-  overflow: auto;
-  left: -5px;
+@media (max-width: 874px) {
+  body {
+    overflow: visible;
+  }
+  .cardContainer {
+    margin-top: -12rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    align-items: center;
+  }
 }
-.cardContainer::-webkit-scrollbar {
-  width: 20px;
-}
+@media (min-width: 875px) {
+  .cardContainer {
+    margin-top: -12rem;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    height: 500px;
+    overflow: auto;
+    left: -5px;
+  }
+  .cardContainer::-webkit-scrollbar {
+    width: 20px;
+  }
 
-.cardContainer::-webkit-scrollbar-track {
-  background: none;
-}
+  .cardContainer::-webkit-scrollbar-track {
+    background: none;
+  }
 
-.cardContainer::-webkit-scrollbar-thumb {
-  background-color: #6c757d;
-  border-radius: 5px;
-}
+  .cardContainer::-webkit-scrollbar-thumb {
+    background-color: #6c757d;
+    border-radius: 5px;
+  }
 
-.cardContainer::-webkit-scrollbar-thumb:hover {
-  background-color: #999;
+  .cardContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
+  }
 }

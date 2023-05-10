@@ -114,7 +114,6 @@ class Edit extends Component {
                 ) : (
                   <Card.Img
                     src={item.imgSrc}
-                    className="cardPic"
                     alt="Generated with Dall-E 2"
                   />
                 )}

@@ -24,7 +24,7 @@ class InputForm extends React.Component {
 
   render() {
     return (
-      <div className="input">
+      <>
         <Form onSubmit={this.handleRequireInputToGenerate}>
           <Form.Group controlId="prompt">
             <Form.Label className="OpenImg-Prompt">
@@ -37,11 +37,10 @@ class InputForm extends React.Component {
               onChange={this.props.handleFormChange}
             />
           </Form.Group>
-          <div className="buttonGen">
-            <button className="imgGenerator" type="submit">
-              Image Generation
-            </button>
-          </div>
+
+          <button className="generateButton" type="submit">
+            Image Generation
+          </button>
         </Form>
         <Alert className="alert" variant="danger" show={this.state.empty}>
           <p>A prompt is required.</p>
@@ -49,7 +48,7 @@ class InputForm extends React.Component {
         <Alert variant="danger" show={this.props.badWords}>
           <p className="bad">No bad words!</p>
         </Alert>
-      </div>
+      </>
     );
   }
 }
