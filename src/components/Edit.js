@@ -108,7 +108,7 @@ class Edit extends Component {
         <>
           <div className="glassContainer">
             <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={800}>
-              <Card className="glassCard2" key={idx}>
+              <Card key={idx}>
                 {this.state.loading._id === item._id ? (
                   <Spinner animation="border" />
                 ) : (
@@ -118,8 +118,8 @@ class Edit extends Component {
                     alt="Generated with Dall-E 2"
                   />
                 )}
-                <Card.Body className="cardBody">
-                  <Card.Title className="cardTitle">
+                <Card.Body>
+                  <Card.Title>
                     {this.state.loading._id === item._id ? (
                       <Spinner animation="border" />
                     ) : (

@@ -199,7 +199,6 @@ h3:hover {
 }
 .submit-container {
   padding-top: 5%;
-  padding-left: 10%;
   position: relative;
   display: flex;
   justify-content: center;
@@ -467,9 +466,6 @@ body {
 }
 
 @media (max-width: 874px) {
-  body {
-    overflow: auto;
-  }
   .about-margin {
     padding-top: 10%;
     position: relative;
