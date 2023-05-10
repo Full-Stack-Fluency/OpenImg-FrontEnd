@@ -186,7 +186,7 @@ class Generate extends React.Component {
 
         <div className="glassContainer">
           <div className="cardContainer">
-            {
+            {this.state.img1Url && (
               <>
                 <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={800}>
                   <Card className="glassCard">
@@ -370,7 +370,7 @@ class Generate extends React.Component {
                   </Card>
                 </Tilt>
               </>
-            }
+            )}
           </div>
         </div>
       </>
