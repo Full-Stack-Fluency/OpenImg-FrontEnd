@@ -583,7 +583,7 @@ body {
 }
 @media (max-width: 874px) {
   body {
-    overflow: visible;
+    overflow-x: auto;
   }
   .cardContainer {
     margin-top: -12rem;
